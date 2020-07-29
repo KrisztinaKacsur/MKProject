@@ -20,7 +20,9 @@ public class RegisterTest extends BaseTest {
         registerSteps.verifyRegistration();
     }
 
+    // hello :)
+    // sper sa mearga
     // aici a comentat Mihai prima linie
-    // aici a comentat Mihai ghice ce? a 2-a linie 
+    // aici a comentat Mihai ghice ce? a 2-a linie
 
 }
