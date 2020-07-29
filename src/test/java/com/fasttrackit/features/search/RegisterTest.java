@@ -24,5 +24,6 @@ public class RegisterTest extends BaseTest {
     // sper sa mearga
     // aici a comentat Mihai prima linie
     // aici a comentat Mihai ghice ce? a 2-a linie
+    //mere pere
 
 }
