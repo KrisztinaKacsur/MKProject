@@ -20,9 +20,5 @@ public class RegisterTest extends BaseTest {
         registerSteps.verifyRegistration();
     }
 
-    // hello :)
-    // sper sa mearga
-
-    //mere pere
 
 }
