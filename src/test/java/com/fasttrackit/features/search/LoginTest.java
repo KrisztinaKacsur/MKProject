@@ -41,7 +41,6 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
-
     @Test
     public void loginAttemptWithoutEmail(){
         loginSteps.openHomepage();
