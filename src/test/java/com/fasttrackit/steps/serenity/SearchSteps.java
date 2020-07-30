@@ -1,12 +1,15 @@
 package com.fasttrackit.steps.serenity;
 
 import com.fasttrackit.pages.HomePage;
+import com.fasttrackit.pages.SearchResultPage;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
 
 public class SearchSteps {
 
     private HomePage homePage;
+    private SearchResultPage searchResultPage;
 
     @Step
     public void navigateToHomepage(){
@@ -16,5 +19,16 @@ public class SearchSteps {
     @Step
     public void typeIntoSearchField(String productName ){
         homePage.typeIntoTopSearchField(productName);
+    }
+
+    @Step
+    public void clickOnSearchIcon(){
+        homePage.clickOnSearchIcon();
+    }
+
+    @Step
+    public void findClickProduct(String productName) {
+        Assert.assertTrue(searchResultPage.findAndClickProduct(productName));
+
     }
 }
