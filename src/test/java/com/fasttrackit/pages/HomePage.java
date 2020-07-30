@@ -13,8 +13,16 @@ public class HomePage extends PageObject {
     @FindBy(css = ".account")
     private WebElementFacade loginLink;
 
+    @FindBy(css = ".search-form .search-field")
+    private WebElementFacade topSearchField;
+
+
     public void clickOnLogin() {
         clickOn(loginLink);
+    }
+
+    public void typeIntoTopSearchField(String productName){
+        typeInto(topSearchField, productName);
     }
 
 }

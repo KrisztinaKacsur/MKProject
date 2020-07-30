@@ -1,5 +1,6 @@
 package com.fasttrackit.steps.serenity;
 
+import com.fasttrackit.Util.Constants;
 import com.fasttrackit.pages.HomePage;
 import com.fasttrackit.pages.MyAccountPage;
 import net.thucydides.core.annotations.Step;
@@ -44,6 +45,16 @@ public class LoginSteps {
     @Step
     public void verifyLoginFailed(){
         Assert.assertTrue(myAccountPage.verifyLoginFailed());
+    }
+
+    @Step
+    public void allLoginSteps() {
+        openHomepage();
+        clickLoginLink();
+        setUserNameOrEmailField(Constants.USER_NAME);
+        setPasswordField(Constants.USER_PASS);
+        clickOnLoginButton();
+
     }
 
 }
