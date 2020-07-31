@@ -28,7 +28,12 @@ public class SearchSteps {
 
     @Step
     public void findClickProduct(String productName) {
-        Assert.assertTrue(searchResultPage.findAndClickProduct(productName));
+        Assert.assertTrue(searchResultPage.findAndClickProductFromList(productName));
 
+    }
+
+    @Step
+    public void verifySingleProductIsFound(String productName){
+        Assert.assertTrue(searchResultPage.findSingleProduct(productName));
     }
 }

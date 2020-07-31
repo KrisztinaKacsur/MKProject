@@ -18,7 +18,14 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".collection_desc h3")
     private WebElementFacade foundElementsName;
 
-    public boolean findAndClickProduct(String productName) {
+    @FindBy(css = ".product_title")
+    private WebElementFacade singleItem;
+
+    public boolean findSingleProduct(String productName) {
+        return singleItem.containsOnlyText(productName);
+    }
+
+    public boolean findAndClickProductFromList (String productName) {
         for (WebElementFacade product : searchResultList) {
             WebElement productNameText = product.findElement(By.cssSelector(".collection_desc a"));
             if (productNameText.getText().equals(productName)){
@@ -28,5 +35,9 @@ public class SearchResultPage extends PageObject {
         }
         return false;
     }
+
+
+
+
 
 }

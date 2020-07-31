@@ -11,11 +11,20 @@ public class SearchTest extends BaseTest {
     SearchSteps searchSteps;
 
     @Test
-    public void searchForAProduct(){
+    public void searchForSingleProduct() {
+        searchSteps.navigateToHomepage();
+        searchSteps.typeIntoSearchField("cap");
+        searchSteps.clickOnSearchIcon();
+        searchSteps.verifySingleProductIsFound("Cap");
+    }
+
+    @Test
+    public void searchForAProduct() {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
         searchSteps.findClickProduct("Hoodie with Logo");
-
     }
+
+
 }
