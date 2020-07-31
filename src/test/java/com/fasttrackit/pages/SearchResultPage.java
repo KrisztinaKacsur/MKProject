@@ -21,6 +21,16 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".product_title")
     private WebElementFacade singleItem;
 
+    @FindBy(css = ".single_add_to_cart_button")
+    private WebElementFacade addToCartButton;
+
+    @FindBy(css = ".woocommerce-message")
+    private WebElementFacade productAddedToCartMessage;
+
+    @FindBy(css = ".view-cart")
+    private WebElementFacade cartLink;
+
+
     public boolean findSingleProduct(String productName) {
         return singleItem.containsOnlyText(productName);
     }
@@ -34,6 +44,18 @@ public class SearchResultPage extends PageObject {
             }
         }
         return false;
+    }
+
+    public void clickOnAddToCartButton() {
+        clickOn(addToCartButton);
+    }
+
+    public boolean verifyProductIsAddedToCart(String productName) {
+        return productAddedToCartMessage.containsText('"' + productName + '"' + " " + " has been added to your cart.");
+    }
+
+    public void clickOnCartLink() {
+        clickOn(cartLink);
     }
 
 

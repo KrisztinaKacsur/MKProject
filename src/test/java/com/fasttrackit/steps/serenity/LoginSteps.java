@@ -48,11 +48,11 @@ public class LoginSteps {
     }
 
     @Step
-    public void allLoginSteps() {
+    public void allLoginSteps(String user, String pass) {
         openHomepage();
         clickLoginLink();
-        setUserNameOrEmailField(Constants.USER_NAME);
-        setPasswordField(Constants.USER_PASS);
+        setUserNameOrEmailField(user);
+        setPasswordField(pass);
         clickOnLoginButton();
 
     }

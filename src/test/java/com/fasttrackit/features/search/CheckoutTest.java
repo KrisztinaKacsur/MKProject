@@ -1,0 +1,46 @@
+package com.fasttrackit.features.search;
+
+import com.fasttrackit.Util.BaseTest;
+import com.fasttrackit.Util.Constants;
+import com.fasttrackit.steps.serenity.CartSteps;
+import com.fasttrackit.steps.serenity.CheckoutSteps;
+import com.fasttrackit.steps.serenity.LoginSteps;
+import com.fasttrackit.steps.serenity.SearchSteps;
+import net.thucydides.core.annotations.Steps;
+import org.junit.Test;
+
+public class CheckoutTest extends BaseTest {
+
+
+    @Steps
+    LoginSteps loginSteps;
+
+    @Steps
+    SearchSteps searchSteps;
+
+    @Steps
+    CartSteps cartSteps;
+
+    @Steps
+    CheckoutSteps checkoutSteps;
+
+
+    @Test
+    public void validCheckoutTest() {
+
+        loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
+        searchSteps.allSearchSteps("cap");
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnProceedToCheckout();
+        checkoutSteps.typeIntoFirstNameField("Krisztina");
+        checkoutSteps.typeIntoLastNameField("Kacsur");
+        checkoutSteps.typeIntoBillingAddress("Cherry street, number 2");
+        checkoutSteps.typeIntoBillingCityField("Cluj-Napoca");
+        checkoutSteps.typeIntoPostcodeField("400435");
+        checkoutSteps.typeIntoPhoneNumberField("0123456789");
+        checkoutSteps.clickPlaceOrder();
+        checkoutSteps.verifyOrderConfirmed();
+
+    }
+}

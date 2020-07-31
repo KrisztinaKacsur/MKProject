@@ -36,4 +36,12 @@ public class SearchSteps {
     public void verifySingleProductIsFound(String productName){
         Assert.assertTrue(searchResultPage.findSingleProduct(productName));
     }
+
+    @Step
+    public void allSearchSteps(String productNameFind){
+        typeIntoSearchField(productNameFind);
+        clickOnSearchIcon();
+    }
+
+
 }
