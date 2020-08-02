@@ -20,6 +20,15 @@ public class HomePage extends PageObject {
     @FindBy(css = ".search-form .searchsubmit")
     private WebElementFacade searchIcon;
 
+    @FindBy(css = "#menu-item-73 a")
+    private WebElementFacade shopLink;
+
+    @FindBy(css = ".read-more")
+    private WebElementFacade readMoreButton;
+
+    public void openHomepage(){
+        open();
+    }
 
     public void clickOnLogin() {
         clickOn(loginLink);
@@ -31,6 +40,14 @@ public class HomePage extends PageObject {
 
     public void clickOnSearchIcon(){
         clickOn(searchIcon);
+    }
+
+    public void clickOnShopLink(){
+        clickOn(shopLink);
+    }
+
+    public void clickOnReadMoreButton(){
+        clickOn(readMoreButton);
     }
 
 }

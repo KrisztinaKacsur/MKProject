@@ -4,6 +4,7 @@ package com.fasttrackit.steps.serenity;
 import com.fasttrackit.pages.CheckOutPage;
 import com.fasttrackit.pages.OrderConfirmedPage;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 
 public class CheckoutSteps {
 
@@ -49,6 +50,16 @@ public class CheckoutSteps {
     @Step
     public void verifyOrderConfirmed(){
         orderConfirmedPage.verifyOrderIsReceived();
+    }
+
+    @Step
+    public void verifyMandatoryFieldsErrorMessage(){
+       Assert.assertTrue(checkOutPage.verifyErrorMessageIsDisplayed());
+    }
+
+    @Step
+    public void verifyBillingPhoneNumberErrorMsg(String errorMsg){
+        Assert.assertTrue(checkOutPage.verifyBillingPhoneNumberErrorMsg(errorMsg));
     }
 
 

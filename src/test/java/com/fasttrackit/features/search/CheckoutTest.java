@@ -43,4 +43,38 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.verifyOrderConfirmed();
 
     }
+
+    @Test
+    public void checkOutWithoutCompletingMandatoryFields(){
+        loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
+        searchSteps.allSearchSteps("cap");
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnProceedToCheckout();
+        checkoutSteps.typeIntoFirstNameField("");
+        checkoutSteps.typeIntoLastNameField("");
+        checkoutSteps.typeIntoBillingAddress("");
+        checkoutSteps.typeIntoBillingCityField("");
+        checkoutSteps.typeIntoPostcodeField("");
+        checkoutSteps.typeIntoPhoneNumberField("");
+        checkoutSteps.clickPlaceOrder();
+        checkoutSteps.verifyMandatoryFieldsErrorMessage();
+    }
+
+    @Test
+    public void checkOutPhoneNumberFiledAcceptsOnlyNumbers(){
+        loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
+        searchSteps.allSearchSteps("cap");
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnProceedToCheckout();
+        checkoutSteps.typeIntoFirstNameField("Krisztina");
+        checkoutSteps.typeIntoLastNameField("Kacsur");
+        checkoutSteps.typeIntoBillingAddress("Cherry street, number 2");
+        checkoutSteps.typeIntoBillingCityField("Cluj-Napoca");
+        checkoutSteps.typeIntoPostcodeField("400435");
+        checkoutSteps.typeIntoPhoneNumberField("abc%^*(.");
+        checkoutSteps.clickPlaceOrder();
+        checkoutSteps.verifyBillingPhoneNumberErrorMsg("Billing Phone is not a valid phone number.");
+    }
 }

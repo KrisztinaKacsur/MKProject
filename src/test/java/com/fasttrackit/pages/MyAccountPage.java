@@ -38,6 +38,9 @@ public class MyAccountPage extends PageObject {
     @FindBy(css = ".login-woocommerce")
     private WebElementFacade loginLink;
 
+    @FindBy(id = "menu-item-69")
+    private WebElementFacade homeLink;
+
 
 
     public void setEmailField (){
@@ -77,6 +80,10 @@ public class MyAccountPage extends PageObject {
 
     public boolean verifyLoginFailed(){
         return loginLink.containsOnlyText("Login");
+    }
+
+    public void clickOnHomeLink(){
+        clickOn(homeLink);
     }
 
 

@@ -13,17 +13,23 @@ public class SearchSteps {
 
     @Step
     public void navigateToHomepage(){
-        homePage.open();
+        homePage.openHomepage();
     }
 
     @Step
-    public void typeIntoSearchField(String productName ){
+    public void typeIntoSearchField(String productName){
         homePage.typeIntoTopSearchField(productName);
     }
 
     @Step
     public void clickOnSearchIcon(){
         homePage.clickOnSearchIcon();
+    }
+
+    @Step
+    public void search(String productName){
+        typeIntoSearchField(productName);
+        clickOnSearchIcon();
     }
 
     @Step
