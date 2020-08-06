@@ -41,6 +41,12 @@ public class MyAccountPage extends PageObject {
     @FindBy(id = "menu-item-69")
     private WebElementFacade homeLink;
 
+    @FindBy(css = ".user-name")
+    private WebElementFacade loggedInUserNameLink;
+
+    @FindBy(css = "#meta-2 [href*='wp-admin']")
+    private WebElementFacade adminSiteLink;
+
 
 
     public void setEmailField (){
@@ -84,6 +90,14 @@ public class MyAccountPage extends PageObject {
 
     public void clickOnHomeLink(){
         clickOn(homeLink);
+    }
+
+    public boolean verifyLoggedInUser(String username){
+        return loggedInUserNameLink.containsText(username);
+    }
+
+    public void clickOnAdminSiteLink(){
+        clickOn(adminSiteLink);
     }
 
 

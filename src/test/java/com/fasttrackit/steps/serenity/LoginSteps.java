@@ -1,6 +1,7 @@
 package com.fasttrackit.steps.serenity;
 
 import com.fasttrackit.Util.Constants;
+import com.fasttrackit.pages.AdminPage;
 import com.fasttrackit.pages.HomePage;
 import com.fasttrackit.pages.MyAccountPage;
 import net.thucydides.core.annotations.Step;
@@ -10,6 +11,7 @@ public class LoginSteps {
 
     private HomePage homePage;
     private MyAccountPage myAccountPage;
+    private AdminPage adminPage;
 
     @Step
     public void openHomepage(){
@@ -25,7 +27,6 @@ public class LoginSteps {
     public void setUserNameOrEmailField(String userNameOrEmail){
         myAccountPage.setUserNameOrEmailField(userNameOrEmail);
     }
-
 
     @Step
     public void setPasswordField(String pass) {
@@ -54,7 +55,21 @@ public class LoginSteps {
         setUserNameOrEmailField(user);
         setPasswordField(pass);
         clickOnLoginButton();
+    }
 
+    @Step
+    public void verifyLoggedInUserIdentity(String userName) {
+        Assert.assertTrue(myAccountPage.verifyLoggedInUser(userName));
+    }
+
+    @Step
+    public void navigateToAdminSite(){
+        myAccountPage.clickOnAdminSiteLink();
+    }
+
+    @Step
+    public void verifyLoggedInAdminInterface(String userName){
+        adminPage.verifyLoggedInOnAdminPage(userName);
     }
 
 }

@@ -12,17 +12,17 @@ public class LoginTest extends BaseTest {
     LoginSteps loginSteps;
 
     @Test
-    public void loginWithCorrectCredentials(){
+    public void loginWithCorrectCredentialsTest(){
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
         loginSteps.setPasswordField(Constants.USER_PASS);
         loginSteps.clickOnLoginButton();
-        loginSteps.verifyLoggedIn();
+        loginSteps.verifyLoggedInUserIdentity("kricsk3");
     }
 
     @Test
-    public void loginWithIncorrectEmail(){
+    public void loginWithIncorrectEmailTest(){
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField("kricsk@gmail.com");
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginWithIncorrectPassword(){
+    public void loginWithIncorrectPasswordTest(){
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
@@ -41,10 +41,9 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
-//test
 
     @Test
-    public void loginAttemptWithoutEmail(){
+    public void loginAttemptWithoutEmailTest(){
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField("");
@@ -55,13 +54,23 @@ public class LoginTest extends BaseTest {
 
 
     @Test
-    public void loginAttemptWithoutPass(){
+    public void loginAttemptWithoutPassTest(){
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
         loginSteps.setPasswordField("");
         loginSteps.clickOnLoginButton();
         loginSteps.verifyLoginFailed();
+    }
+
+    @Test
+    public void adminLoginTest(){
+        loginSteps.openHomepage();
+        loginSteps.clickLoginLink();
+        loginSteps.setUserNameOrEmailField(Constants.ADMIN_USER_NAME);
+        loginSteps.setPasswordField(Constants.ADMIN_USER_PASS);
+        loginSteps.clickOnLoginButton();
+        loginSteps.verifyLoggedInUserIdentity("admin");
     }
 
 

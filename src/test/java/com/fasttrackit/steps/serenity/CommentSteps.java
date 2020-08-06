@@ -3,7 +3,6 @@ package com.fasttrackit.steps.serenity;
 import com.fasttrackit.pages.HelloWorldPage;
 import com.fasttrackit.pages.HomePage;
 import com.fasttrackit.pages.MyAccountPage;
-import com.fasttrackit.pages.SimpleHelloWorldPage;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
@@ -12,7 +11,7 @@ public class CommentSteps {
     private MyAccountPage myAccountPage;
     private HomePage homePage;
     private HelloWorldPage helloWorldPage;
-    private SimpleHelloWorldPage simpleHelloWorldPage;
+
 
     @Step
     public void clickOnHomeLink(){
@@ -42,26 +41,26 @@ public class CommentSteps {
 
     @Step
     public void commentWithoutLogin(String myComment){
-        simpleHelloWorldPage.typeIntoCommentTextBox(myComment);
+        helloWorldPage.typeIntoCommentTextBoxNotLoggedIn(myComment);
     }
 
     @Step
     public void typeCommentatorName(String name){
-        simpleHelloWorldPage.typeName(name);
+        helloWorldPage.typeNameNotLoggedIn(name);
     }
 
     @Step
     public void typeCommentatorEmail(String email){
-        simpleHelloWorldPage.typeEmail(email);
+        helloWorldPage.typeEmailNotLoggedIn(email);
     }
 
     @Step
     public void clickPostCommentNotLogged() {
-        simpleHelloWorldPage.clickPostCommentButton();
+        helloWorldPage.clickPostCommentButtonNotLoggedIn();
     }
 
     @Step
     public void verifyNotLoggedInCommentIsVisible(String myComment) {
-        Assert.assertTrue(simpleHelloWorldPage.verifyInCommentsArea(myComment));
+        Assert.assertTrue(helloWorldPage.verifyInCommentsAreaNotLoggedIn(myComment));
     }
 }
