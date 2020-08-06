@@ -6,10 +6,20 @@ import com.fasttrackit.steps.serenity.LoginSteps;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 
-public class adminPageTest extends BaseTest {
+public class adminLoginTest extends BaseTest {
 
     @Steps
     LoginSteps loginSteps;
+
+    @Test
+    public void loginAsAdminTest(){
+        loginSteps.openHomepage();
+        loginSteps.clickLoginLink();
+        loginSteps.setUserNameOrEmailField(Constants.ADMIN_USER_NAME);
+        loginSteps.setPasswordField(Constants.ADMIN_USER_PASS);
+        loginSteps.clickOnLoginButton();
+        loginSteps.verifyLoggedInUserIdentity("admin");
+    }
 
     @Test
     public void navigateToAdminPage() {

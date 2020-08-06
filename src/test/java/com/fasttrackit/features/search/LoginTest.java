@@ -63,16 +63,6 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
-    @Test
-    public void adminLoginTest(){
-        loginSteps.openHomepage();
-        loginSteps.clickLoginLink();
-        loginSteps.setUserNameOrEmailField(Constants.ADMIN_USER_NAME);
-        loginSteps.setPasswordField(Constants.ADMIN_USER_PASS);
-        loginSteps.clickOnLoginButton();
-        loginSteps.verifyLoggedInUserIdentity("admin");
-    }
-
 
 
 }

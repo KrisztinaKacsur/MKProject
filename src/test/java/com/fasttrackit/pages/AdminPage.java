@@ -11,8 +11,15 @@ public class AdminPage extends PageObject {
     @FindBy(id = "wp-admin-bar-my-account")
     private WebElementFacade adminWelcomeMessage;
 
+    @FindBy (css = "#menu-posts .wp-menu-name")
+    private WebElementFacade postMenuLink;
+
     public boolean verifyLoggedInOnAdminPage(String userName){
         return adminWelcomeMessage.containsText(userName);
+    }
+
+    public void clickOnPosMenu () {
+        clickOn(postMenuLink);
     }
 
 
