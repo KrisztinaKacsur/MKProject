@@ -1,7 +1,9 @@
 package com.fasttrackit.features.search;
 
 import com.fasttrackit.Util.BaseTest;
+import com.fasttrackit.Util.Constants;
 import com.fasttrackit.steps.serenity.CartSteps;
+import com.fasttrackit.steps.serenity.LoginSteps;
 import com.fasttrackit.steps.serenity.SearchSteps;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
@@ -14,14 +16,28 @@ public class CartTest extends BaseTest {
     @Steps
     CartSteps cartSteps;
 
+    @Steps
+    LoginSteps loginSteps;
+
     @Test
-    public void addToCartTest() {
-        searchSteps.navigateToHomepage();
+    public void addToCartSingleProductBySearchTest() {
+        cartSteps.openHomePage();
         searchSteps.typeIntoSearchField("cap");
         searchSteps.clickOnSearchIcon();
         cartSteps.clickAddProductToCartButton();
-        cartSteps.verifyProductAddedToCart("Cap");
+        cartSteps.verifyProductAddedToCart("cap");
+    }
 
+    @Test
+    public void addOneProductToCart() {
+        cartSteps.openHomePage();
+        loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
+        cartSteps.clickOnShopLink();
+        cartSteps.addBeanieToCart();
+        cartSteps.clickOnShoppingCartLink();
+        cartSteps.verifyBeanieInCart();
+        cartSteps.removeFirstProductFromCart();
+        cartSteps.verifyBeanieWasRemovedFromCart();
     }
 
 }

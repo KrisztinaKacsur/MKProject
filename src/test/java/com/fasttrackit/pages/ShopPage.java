@@ -11,9 +11,24 @@ public class ShopPage extends PageObject {
     @FindBy(css = ".orderby")
     private WebElementFacade sortByDropdownSelect;
 
+    @FindBy(css = "[href*='cart=26']")
+    private WebElementFacade addBeanieToCartButton;
+
+    @FindBy(css = ".cart-contents")
+    private WebElementFacade shoppingCartLink;
+
     public void selectSortByDropdown(String visibleText){
         sortByDropdownSelect.selectByVisibleText(visibleText);
     }
+
+    public void addBeanieToCart(){
+        clickOn(addBeanieToCartButton);
+    }
+
+    public void clickOnShoppingCartLink(){
+        clickOn(shoppingCartLink);
+    }
+
 
 
 

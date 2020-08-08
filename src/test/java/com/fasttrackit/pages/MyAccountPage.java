@@ -42,10 +42,13 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade homeLink;
 
     @FindBy(css = ".user-name")
-    private WebElementFacade loggedInUserNameLink;
+    private WebElementFacade WelcomeLoggedInUserNameLink;
 
     @FindBy(css = "#meta-2 [href*='wp-admin']")
     private WebElementFacade adminSiteLink;
+
+    @FindBy(id = "menu-item-73")
+    private WebElementFacade shopLink;
 
 
 
@@ -93,11 +96,15 @@ public class MyAccountPage extends PageObject {
     }
 
     public boolean verifyLoggedInUser(String username){
-        return loggedInUserNameLink.containsText(username);
+        return WelcomeLoggedInUserNameLink.containsText(username);
     }
 
     public void clickOnAdminSiteLink(){
         clickOn(adminSiteLink);
+    }
+
+    public void clickOnShopLink() {
+        clickOn(shopLink);
     }
 
 

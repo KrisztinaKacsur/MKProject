@@ -11,7 +11,32 @@ public class CartPage extends PageObject {
     @FindBy(css = ".checkout-button")
     private WebElementFacade proceedToCheckoutButton;
 
+    @FindBy(css = ".product-name a")
+    private WebElementFacade productBeanieInCart;
+
+    @FindBy(css = ".product-remove a")
+    private WebElementFacade removeFirstProductFromCart;
+
+    @FindBy(css = ".woocommerce-message")
+    private WebElementFacade productRemovedMessageFromCart;
+
+
     public void clickProceedToCheckout() {
         clickOn(proceedToCheckoutButton);
     }
+
+    public boolean verifyBeanieInCart(){
+        return productBeanieInCart.containsText("Beanie");
+    }
+
+    public void clickOnRemoveFirstProductFromCart(){
+        clickOn(removeFirstProductFromCart);
+    }
+
+    public boolean verifyProductRemoved(){
+        System.out.println(productRemovedMessageFromCart.getText());
+        return productRemovedMessageFromCart.containsText("“Beanie” removed. Undo?");
+    }
+
+
 }
