@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
     SearchSteps searchSteps;
 
     @Test
-    public void searchForSingleProduct() {
+    public void searchForAProductWithOneResult () {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("cap");
         searchSteps.clickOnSearchIcon();
@@ -19,7 +19,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchForAProduct() {
+    public void searchForAProductWithMultipleResults () {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();

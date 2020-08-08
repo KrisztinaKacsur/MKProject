@@ -40,5 +40,10 @@ public class RegisterSteps {
         Assert.assertTrue(myAccountPage.verifyRegistered());
     }
 
+    @Step
+    public void verifyMyAccountPassOrEmailErrorMessage(String errorMsg){
+        Assert.assertTrue(myAccountPage.myAccountPassOrEmailErrorMessage(errorMsg));
+    }
+
 
 }

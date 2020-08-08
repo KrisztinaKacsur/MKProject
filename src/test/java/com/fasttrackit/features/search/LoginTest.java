@@ -63,6 +63,16 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
+    @Test
+    public void loginWithoutUserAndPassword(){
+        loginSteps.openHomepage();
+        loginSteps.clickLoginLink();
+        loginSteps.clickOnLoginButton();
+        loginSteps.verifyUserNameRequiredMessage("Error: Username is required.");
+
+    }
+
+
 
 
 }

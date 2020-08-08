@@ -50,6 +50,9 @@ public class MyAccountPage extends PageObject {
     @FindBy(id = "menu-item-73")
     private WebElementFacade shopLink;
 
+    @FindBy (css = ".woocommerce-error")
+    private WebElementFacade myAccountPageErrorMessage;
+
 
 
     public void setEmailField (){
@@ -105,6 +108,10 @@ public class MyAccountPage extends PageObject {
 
     public void clickOnShopLink() {
         clickOn(shopLink);
+    }
+
+    public boolean myAccountPassOrEmailErrorMessage(String errorMsg){
+        return myAccountPageErrorMessage.containsOnlyText(errorMsg);
     }
 
 

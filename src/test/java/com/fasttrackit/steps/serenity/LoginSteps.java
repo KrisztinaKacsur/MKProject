@@ -72,4 +72,9 @@ public class LoginSteps {
         adminPage.verifyLoggedInOnAdminPage(userName);
     }
 
+    @Step
+    public void verifyUserNameRequiredMessage (String errorMsg){
+        Assert.assertTrue(homePage.verifyUserNameRequiredMessage(errorMsg));
+    }
+
 }

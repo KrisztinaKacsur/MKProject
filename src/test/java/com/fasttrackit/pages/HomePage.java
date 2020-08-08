@@ -26,6 +26,9 @@ public class HomePage extends PageObject {
     @FindBy(css = ".read-more")
     private WebElementFacade readMoreButton;
 
+    @FindBy (css = ".woocommerce-error")
+    private WebElementFacade userNameRequiredErrorMessage;
+
     public void openHomepage(){
         open();
     }
@@ -48,6 +51,10 @@ public class HomePage extends PageObject {
 
     public void clickOnReadMoreButton(){
         clickOn(readMoreButton);
+    }
+
+    public boolean verifyUserNameRequiredMessage (String errorMsg){
+        return userNameRequiredErrorMessage.containsOnlyText(errorMsg);
     }
 
 }
