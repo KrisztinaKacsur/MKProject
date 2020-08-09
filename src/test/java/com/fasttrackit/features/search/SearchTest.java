@@ -47,6 +47,7 @@ public class SearchTest extends BaseTest {
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
         searchSteps.clickOnHoodieWithZipperLink();
+        searchSteps.navigateBack();
 
     }
 

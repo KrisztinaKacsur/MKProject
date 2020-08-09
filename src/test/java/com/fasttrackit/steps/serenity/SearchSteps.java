@@ -64,5 +64,10 @@ public class SearchSteps {
         searchResultPage.clickOnHoodieWithZipperLink();
     }
 
+    @Step
+    public void navigateBack(){
+        searchResultPage.navigateBack();
+    }
+
 
 }
