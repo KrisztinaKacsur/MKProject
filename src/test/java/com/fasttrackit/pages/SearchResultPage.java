@@ -28,6 +28,17 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".view-cart")
     private WebElementFacade cartLink;
 
+    @FindBy (css=".woocommerce-info")
+    private WebElementFacade noProductFoundMessage;
+
+    @FindBy (css=".woocommerce-result-count")
+    private WebElementFacade searchResultCount;
+
+    @FindBy (css = "[href*='zipper'] h3")
+    private WebElementFacade hoodieWithZipperLink;
+
+
+
 
     public boolean findSingleProduct(String productName) {
         return singleItem.containsOnlyText(productName);
@@ -56,8 +67,17 @@ public class SearchResultPage extends PageObject {
         clickOn(cartLink);
     }
 
+    public boolean verifyNoProductWasFound (){
+        return noProductFoundMessage.containsOnlyText("No products were found matching your selection.");
+    }
 
+    public boolean verifyProductsWereFound (){
+        return searchResultCount.isDisplayed();
+    }
 
+    public void clickOnHoodieWithZipperLink (){
+        clickOn(hoodieWithZipperLink);
+    }
 
-
+    
 }

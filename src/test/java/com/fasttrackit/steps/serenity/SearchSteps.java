@@ -49,5 +49,20 @@ public class SearchSteps {
         clickOnSearchIcon();
     }
 
+    @Step
+    public void noProductFoundMessage (){
+        Assert.assertTrue(searchResultPage.verifyNoProductWasFound());
+    }
+
+    @Step
+    public void verifyProductsWereFound (){
+        Assert.assertTrue(searchResultPage.verifyProductsWereFound());
+    }
+
+    @Step
+    public void clickOnHoodieWithZipperLink (){
+        searchResultPage.clickOnHoodieWithZipperLink();
+    }
+
 
 }

@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
     SearchSteps searchSteps;
 
     @Test
-    public void searchForAProductWithOneResult () {
+    public void searchForAProductWithOneResultTest () {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("cap");
         searchSteps.clickOnSearchIcon();
@@ -19,11 +19,35 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchForAProductWithMultipleResults () {
+    public void searchForAProductWithMultipleResultsTest () {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
         searchSteps.findClickProduct("Hoodie with Logo");
+    }
+
+    @Test
+    public void searchSpecialCharacterTest (){
+        searchSteps.navigateToHomepage();
+        searchSteps.typeIntoSearchField("#$%");
+        searchSteps.clickOnSearchIcon();
+        searchSteps.noProductFoundMessage();
+    }
+
+    @Test
+    public void searchWithoutTypingAnythingInSearchFieldTest() {
+        searchSteps.navigateToHomepage();
+        searchSteps.clickOnSearchIcon();
+        searchSteps.verifyProductsWereFound();
+    }
+
+    @Test
+    public void searchResultIsMaintainedAfterClickingOnASearchResultTest (){
+        searchSteps.navigateToHomepage();
+        searchSteps.typeIntoSearchField("hoodie");
+        searchSteps.clickOnSearchIcon();
+        searchSteps.clickOnHoodieWithZipperLink();
+
     }
 
 
