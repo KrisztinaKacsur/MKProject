@@ -42,12 +42,15 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchResultIsMaintainedAfterClickingOnASearchResultTest (){
+    public void searchResultIsMaintainedAfterNavigateBackTest (){
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
+        searchSteps.getFirstSearchResult();
         searchSteps.clickOnHoodieWithZipperLink();
         searchSteps.navigateBack();
+        searchSteps.getResultAfterGoBackInChrome();
+        searchSteps.verifyIfSearchedResultsAreTheSame();
 
     }
 

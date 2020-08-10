@@ -11,6 +11,9 @@ import java.util.List;
 
 public class SearchResultPage extends PageObject {
 
+    private String nrOfResultsFound;
+    private String nrOfResultsAfterGoBack;
+
     @FindBy(css = ".product")
     private List<WebElementFacade> searchResultList;
 
@@ -80,9 +83,22 @@ public class SearchResultPage extends PageObject {
         clickOn(hoodieWithZipperLink);
     }
 
-    public void navigateBack(){
+    public void  navigateBack(){
         getDriver().navigate().back();
     }
 
-    
+    public void getSearchedResults () {
+       nrOfResultsFound =  searchResultCount.getText();
+    }
+
+    public void getResultsAfterGoBackInChrome (){
+        nrOfResultsAfterGoBack = searchResultCount.getText();
+    }
+
+    public boolean verifyIfSearchedResultsAreTheSame(){
+        if (nrOfResultsFound.equals(nrOfResultsAfterGoBack)) {
+            return true;
+        } return false;
+    }
+
 }

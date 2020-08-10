@@ -69,5 +69,19 @@ public class SearchSteps {
         searchResultPage.navigateBack();
     }
 
+    @Step
+    public void getFirstSearchResult(){
+        searchResultPage.getSearchedResults();
+    }
+
+    @Step
+    public void getResultAfterGoBackInChrome () {
+        searchResultPage.getResultsAfterGoBackInChrome();
+    }
+
+    @Step
+    public void verifyIfSearchedResultsAreTheSame(){
+        Assert.assertTrue(searchResultPage.verifyIfSearchedResultsAreTheSame());
+    }
 
 }
