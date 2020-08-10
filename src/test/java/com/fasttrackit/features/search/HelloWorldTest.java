@@ -20,10 +20,9 @@ public class HelloWorldTest extends BaseTest {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         commentSteps.clickOnHomeLink();
         commentSteps.clickOnReadMoreButton();
-        commentSteps.typeCommentText("This is a test comment by MK");
+        commentSteps.typeCommentText("This is a test comment by MK2");
         commentSteps.clickPostComment();
-        commentSteps.verifyMyCommentIsVisible("This is a test comment by MK");
-
+        commentSteps.verifyMyCommentIsVisible("This is a test comment by MK2");
     }
 
    @Test
@@ -36,6 +35,5 @@ public class HelloWorldTest extends BaseTest {
         commentSteps.typeCommentatorEmail("abcdef@gmail.com");
         commentSteps.clickPostCommentNotLogged();
         commentSteps.verifyNotLoggedInCommentIsVisible("Test comment without login");
-
     }
 }

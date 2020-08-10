@@ -3,11 +3,14 @@ package com.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.apache.commons.text.RandomStringGenerator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SearchResultPage extends PageObject {
 
@@ -41,10 +44,17 @@ public class SearchResultPage extends PageObject {
     @FindBy (css = "[href*='zipper'] h3")
     private WebElementFacade hoodieWithZipperLink;
 
+    @FindBy (css = ".search-form .search-field")
+    private WebElementFacade searchField;
+
+    @FindBy(css = ".ak-container.entry-title")
+    private WebElementFacade shopTitle;
+
+    @FindBy(css = "[aria-haspopup='true'] .display-name")
+    private WebElementFacade adminLink;
 
 
-
-    public boolean findSingleProduct(String productName) {
+    public boolean verifySingleProductWasFound(String productName) {
         return singleItem.containsOnlyText(productName);
     }
 
@@ -100,5 +110,15 @@ public class SearchResultPage extends PageObject {
             return true;
         } return false;
     }
+
+    public boolean verifyIfShopIsDisplayed(){
+        return shopTitle.isDisplayed();
+    }
+
+    public void clickOnAdminLink(){
+        clickOn(adminLink);
+    }
+
+
 
 }

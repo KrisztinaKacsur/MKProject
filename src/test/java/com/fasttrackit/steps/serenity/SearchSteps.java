@@ -40,7 +40,7 @@ public class SearchSteps {
 
     @Step
     public void verifySingleProductIsFound(String productName){
-        Assert.assertTrue(searchResultPage.findSingleProduct(productName));
+        Assert.assertTrue(searchResultPage.verifySingleProductWasFound(productName));
     }
 
     @Step
@@ -83,5 +83,16 @@ public class SearchSteps {
     public void verifyIfSearchedResultsAreTheSame(){
         Assert.assertTrue(searchResultPage.verifyIfSearchedResultsAreTheSame());
     }
+
+    @Step
+    public void verifyShopIsDisplayed(){
+        Assert.assertTrue(searchResultPage.verifyIfShopIsDisplayed());
+    }
+
+    @Step
+    public void clickOnAdminLink(){
+        searchResultPage.clickOnAdminLink();
+    }
+
 
 }

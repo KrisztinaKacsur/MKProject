@@ -6,7 +6,7 @@ import com.fasttrackit.steps.serenity.LoginSteps;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 
-public class adminLoginTest extends BaseTest {
+public class AdminLoginTest extends BaseTest {
 
     @Steps
     LoginSteps loginSteps;

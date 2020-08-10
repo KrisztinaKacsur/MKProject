@@ -1,7 +1,6 @@
 package com.fasttrackit.steps.serenity;
 
-import com.fasttrackit.Util.Constants;
-import com.fasttrackit.pages.AdminPage;
+import com.fasttrackit.pages.AdminHomePage;
 import com.fasttrackit.pages.HomePage;
 import com.fasttrackit.pages.MyAccountPage;
 import net.thucydides.core.annotations.Step;
@@ -11,7 +10,7 @@ public class LoginSteps {
 
     private HomePage homePage;
     private MyAccountPage myAccountPage;
-    private AdminPage adminPage;
+    private AdminHomePage adminHomePage;
 
     @Step
     public void openHomepage(){
@@ -69,7 +68,7 @@ public class LoginSteps {
 
     @Step
     public void verifyLoggedInAdminInterface(String userName){
-        adminPage.verifyLoggedInOnAdminPage(userName);
+        adminHomePage.verifyLoggedInOnAdminPage(userName);
     }
 
     @Step

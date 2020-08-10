@@ -6,7 +6,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("http://qa5.fasttrackit.org:8008/wp-admin/")
-public class AdminPage extends PageObject {
+public class AdminHomePage extends PageObject {
 
     @FindBy(id = "wp-admin-bar-my-account")
     private WebElementFacade adminWelcomeMessage;
@@ -14,12 +14,19 @@ public class AdminPage extends PageObject {
     @FindBy (css = "#menu-posts .wp-menu-name")
     private WebElementFacade postMenuLink;
 
+    @FindBy(css = "#menu-posts-product .wp-menu-name")
+    private WebElementFacade allProductsLink;
+
     public boolean verifyLoggedInOnAdminPage(String userName){
         return adminWelcomeMessage.containsText(userName);
     }
 
     public void clickOnPosMenu () {
         clickOn(postMenuLink);
+    }
+
+    public void clickOnAllProductsLink(){
+        clickOn(allProductsLink);
     }
 
 
