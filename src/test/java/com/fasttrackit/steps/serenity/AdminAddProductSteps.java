@@ -3,7 +3,6 @@ package com.fasttrackit.steps.serenity;
 import com.fasttrackit.pages.AdminAddProductPage;
 import com.fasttrackit.pages.AdminHomePage;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
 public class AdminAddProductSteps {
@@ -79,5 +78,15 @@ public class AdminAddProductSteps {
     @Step
     public void clickOnSunglassesTrashLink(){
         adminAddProductPage.clickOnSunglassesTrashLink();
+    }
+
+    @Step
+    public void clickOnSelectACategory(){
+        adminAddProductPage.clickOnSelectACategory();
+    }
+
+    @Step
+    public void clickOnUncategorizedProducts(){
+        adminAddProductPage.clickOnUncategorizedProducts();
     }
 }

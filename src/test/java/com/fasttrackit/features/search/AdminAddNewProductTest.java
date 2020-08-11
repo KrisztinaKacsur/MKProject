@@ -2,7 +2,6 @@ package com.fasttrackit.features.search;
 
 import com.fasttrackit.Util.BaseTest;
 import com.fasttrackit.Util.Constants;
-import com.fasttrackit.pages.HomePage;
 import com.fasttrackit.steps.serenity.AdminAddProductSteps;
 import com.fasttrackit.steps.serenity.LoginSteps;
 import com.fasttrackit.steps.serenity.SearchSteps;
@@ -42,7 +41,7 @@ public class AdminAddNewProductTest extends BaseTest {
         searchSteps.verifySingleProductIsFound("Sunglasses MK");
         searchSteps.clickOnAdminLink();
         adminAddProductSteps.clickOnAllProductsLink();
-        adminAddProductSteps.clickOnSunglassesCheckBox();
-        adminAddProductSteps.clickOnSunglassesTrashLink();
+        adminAddProductSteps.clickOnSelectACategory();
+        adminAddProductSteps.clickOnUncategorizedProducts();
     }
 }

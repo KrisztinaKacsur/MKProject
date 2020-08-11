@@ -50,6 +50,14 @@ public class AdminAddProductPage extends PageObject {
 
 
 
+    @FindBy(css = ".dropdown_product_cat")
+    private WebElementFacade dropdownSelectCategory;
+
+    @FindBy(css = "[value='uncategorized']")
+    private WebElementFacade uncategorizedProducts;
+
+
+
     public void clickOnAddNewProductButton(){
         clickOn(addNewProductButton);
     }
@@ -102,6 +110,13 @@ public class AdminAddProductPage extends PageObject {
         clickOn(sunglassesTrashLink);
     }
 
+    public void clickOnSelectACategory(){
+        clickOn(dropdownSelectCategory);
+    }
+
+    public void clickOnUncategorizedProducts(){
+        clickOn(uncategorizedProducts);
+    }
 
 
 
