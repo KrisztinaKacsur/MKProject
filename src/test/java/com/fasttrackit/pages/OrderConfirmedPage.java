@@ -12,6 +12,7 @@ public class OrderConfirmedPage extends PageObject {
     private WebElementFacade orderReceivedText;
 
     public boolean verifyOrderIsReceived(){
+        waitFor(orderReceivedText);
         return orderReceivedText.containsOnlyText("ORDER RECEIVED");
     }
 

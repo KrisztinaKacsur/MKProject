@@ -49,7 +49,8 @@ public class CheckoutSteps {
 
     @Step
     public void verifyOrderConfirmed(){
-        orderConfirmedPage.verifyOrderIsReceived();
+        checkOutPage.waitForPageToLoad();
+        Assert.assertTrue(orderConfirmedPage.verifyOrderIsReceived());
     }
 
     @Step

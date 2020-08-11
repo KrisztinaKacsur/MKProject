@@ -79,6 +79,7 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void productQtyChangedAfterPlacingOrderTest(){
+        //setup
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("mk");
         searchSteps.initialProductStock();
@@ -93,6 +94,7 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.verifyOrderConfirmed();
         searchSteps.allSearchSteps("mk");
         searchSteps.verifyIfStockChanged();
+        //teardown
 
     }
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,16 +36,16 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".view-cart")
     private WebElementFacade cartLink;
 
-    @FindBy (css=".woocommerce-info")
+    @FindBy(css = ".woocommerce-info")
     private WebElementFacade noProductFoundMessage;
 
-    @FindBy (css=".woocommerce-result-count")
+    @FindBy(css = ".woocommerce-result-count")
     private WebElementFacade searchResultCount;
 
-    @FindBy (css = "[href*='zipper'] h3")
+    @FindBy(css = "[href*='zipper'] h3")
     private WebElementFacade hoodieWithZipperLink;
 
-    @FindBy (css = ".search-form .search-field")
+    @FindBy(css = ".search-form .search-field")
     private WebElementFacade searchField;
 
     @FindBy(css = ".ak-container.entry-title")
@@ -53,7 +54,7 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = "[aria-haspopup='true'] .display-name")
     private WebElementFacade adminLink;
 
-    @FindBy (css=".stock")
+    @FindBy(css = ".stock")
     private WebElementFacade productStockText;
 
 
@@ -61,10 +62,10 @@ public class SearchResultPage extends PageObject {
         return singleItem.containsOnlyText(productName);
     }
 
-    public boolean findAndClickProductFromList (String productName) {
+    public boolean findAndClickProductFromList(String productName) {
         for (WebElementFacade product : searchResultList) {
             WebElement productNameText = product.findElement(By.cssSelector(".collection_desc a"));
-            if (productNameText.getText().equals(productName)){
+            if (productNameText.getText().equals(productName)) {
                 clickOn(productNameText);
                 return true;
             }
@@ -84,50 +85,52 @@ public class SearchResultPage extends PageObject {
         clickOn(cartLink);
     }
 
-    public boolean verifyNoProductWasFound (){
+    public boolean verifyNoProductWasFound() {
         return noProductFoundMessage.containsOnlyText("No products were found matching your selection.");
     }
 
-    public boolean verifyProductsWereFound (){
+    public boolean verifyProductsWereFound() {
         return searchResultCount.isDisplayed();
     }
 
-    public void clickOnHoodieWithZipperLink (){
+    public void clickOnHoodieWithZipperLink() {
         clickOn(hoodieWithZipperLink);
     }
 
-    public void  navigateBack(){
+    public void navigateBack() {
         getDriver().navigate().back();
     }
 
-    public void getSearchedResults () {
-       nrOfResultsFound =  searchResultCount.getText();
+    public void getSearchedResults() {
+        nrOfResultsFound = searchResultCount.getText();
     }
 
-    public void getResultsAfterGoBackInChrome (){
+    public void getResultsAfterGoBackInChrome() {
         nrOfResultsAfterGoBack = searchResultCount.getText();
     }
 
-    public boolean verifyIfSearchedResultsAreTheSame(){
+    public boolean verifyIfSearchedResultsAreTheSame() {
         if (nrOfResultsFound.equals(nrOfResultsAfterGoBack)) {
             return true;
-        } return false;
+        }
+        return false;
     }
 
-    public boolean verifyIfShopIsDisplayed(){
+    public boolean verifyIfShopIsDisplayed() {
         return shopTitle.isDisplayed();
     }
 
-    public int initialProductStock(){
+    public int getProductQty() {
         String initialProductStock = productStockText.getText().replace(" in stock", "");
-        int initialProductStockInt = Integer.valueOf(initialProductStock);
+        int initialProductStockInt = Integer.parseInt(initialProductStock);
+        System.out.println(initialProductStockInt);
         return initialProductStockInt;
     }
 
-    public boolean verifyIfStockChanged() {
-        String productStockAfterPlacingOrder = productStockText.getText().replace(" in stock", "");
-        int productStockAfterPlacingOrder1 = Integer.valueOf(productStockAfterPlacingOrder);
-        if (initialProductStock() > productStockAfterPlacingOrder1) {
+    public boolean verifyIfStockChanged(int initialValue, int offset) {
+        int productStockAfterPlacingOrder1 = getProductQty();
+        System.out.println(productStockAfterPlacingOrder1);
+        if ((initialValue - offset) == productStockAfterPlacingOrder1) {
             return true;
         }
         return false;

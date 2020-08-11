@@ -32,6 +32,9 @@ public class CheckOutPage extends PageObject {
     @FindBy(css = ".woocommerce-error")
     private WebElementFacade checkoutErrorMsg;
 
+    @FindBy(css = ".blockUI.blockOverlay")
+    private WebElementFacade blockUiElement;
+
 
     public void setBillingFirstNameField(String firstName){
         typeInto(billingFirstNameField, firstName);
@@ -58,6 +61,7 @@ public class CheckOutPage extends PageObject {
     }
 
     public void clickPlaceOrderButton(){
+        waitFor(placeOrderButton);
         clickOn(placeOrderButton);
     }
 
@@ -67,6 +71,10 @@ public class CheckOutPage extends PageObject {
 
     public boolean verifyBillingPhoneNumberErrorMsg(String errorMessage){
         return checkoutErrorMsg.containsOnlyText(errorMessage);
+    }
+
+    public void waitForPageToLoad(){
+        blockUiElement.waitUntilNotVisible();
     }
 
 }
