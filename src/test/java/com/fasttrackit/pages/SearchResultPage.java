@@ -123,13 +123,11 @@ public class SearchResultPage extends PageObject {
     public int getProductQty() {
         String initialProductStock = productStockText.getText().replace(" in stock", "");
         int initialProductStockInt = Integer.parseInt(initialProductStock);
-        System.out.println(initialProductStockInt);
         return initialProductStockInt;
     }
 
     public boolean verifyIfStockChanged(int initialValue, int offset) {
         int productStockAfterPlacingOrder1 = getProductQty();
-        System.out.println(productStockAfterPlacingOrder1);
         if ((initialValue - offset) == productStockAfterPlacingOrder1) {
             return true;
         }
