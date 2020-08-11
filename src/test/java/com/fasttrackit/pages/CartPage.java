@@ -21,6 +21,7 @@ public class CartPage extends PageObject {
     private WebElementFacade productRemovedMessageFromCart;
 
 
+
     public void clickProceedToCheckout() {
         clickOn(proceedToCheckoutButton);
     }
@@ -37,6 +38,8 @@ public class CartPage extends PageObject {
         System.out.println(productRemovedMessageFromCart.getText());
         return productRemovedMessageFromCart.containsText("“Beanie” removed. Undo?");
     }
+
+
 
 
 }

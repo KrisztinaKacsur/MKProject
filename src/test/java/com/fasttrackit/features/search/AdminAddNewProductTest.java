@@ -34,14 +34,11 @@ public class AdminAddNewProductTest extends BaseTest {
         adminAddProductSteps.clickOnManageStockCheckbox();
         adminAddProductSteps.typeIntoStockQuantityField("20");
         adminAddProductSteps.clickOnPublishButton();
-        adminAddProductSteps.verifyNewProductIsPublished();
+        adminAddProductSteps.verifyProductUpdated("Product published. View Product");
         searchSteps.navigateToHomepage();
         searchSteps.allSearchSteps("Sunglasses MK");
         searchSteps.verifyShopIsDisplayed();
         searchSteps.verifySingleProductIsFound("Sunglasses MK");
-        searchSteps.clickOnAdminLink();
-        adminAddProductSteps.clickOnAllProductsLink();
-        adminAddProductSteps.clickOnSelectACategory();
-        adminAddProductSteps.clickOnUncategorizedProducts();
+
     }
 }

@@ -66,27 +66,8 @@ public class AdminAddProductSteps {
     }
 
     @Step
-    public void verifyNewProductIsPublished(){
-        Assert.assertTrue(adminAddProductPage.verifyNewProductIsPublished());
+    public void verifyProductUpdated(String msg){
+        Assert.assertTrue(adminAddProductPage.verifyProductUpdated(msg));
     }
 
-    @Step
-    public void clickOnSunglassesCheckBox(){
-        adminAddProductPage.clickOnSunglassesCheckBox();
-    }
-
-    @Step
-    public void clickOnSunglassesTrashLink(){
-        adminAddProductPage.clickOnSunglassesTrashLink();
-    }
-
-    @Step
-    public void clickOnSelectACategory(){
-        adminAddProductPage.clickOnSelectACategory();
-    }
-
-    @Step
-    public void clickOnUncategorizedProducts(){
-        adminAddProductPage.clickOnUncategorizedProducts();
-    }
 }

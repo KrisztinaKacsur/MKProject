@@ -27,7 +27,6 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void validCheckoutTest() {
-
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
@@ -76,5 +75,24 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.typeIntoPhoneNumberField("abc%^*(.");
         checkoutSteps.clickPlaceOrder();
         checkoutSteps.verifyBillingPhoneNumberErrorMsg("Billing Phone is not a valid phone number.");
+    }
+
+    @Test
+    public void productQtyChangedAfterPlacingOrderTest(){
+        loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
+        searchSteps.allSearchSteps("mk");
+        searchSteps.initialProductStock();
+        cartSteps.proceedToCheckoutSteps();
+        checkoutSteps.typeIntoFirstNameField("Mihai");
+        checkoutSteps.typeIntoLastNameField("STD");
+        checkoutSteps.typeIntoBillingAddress("Memorandumului street, number 10");
+        checkoutSteps.typeIntoBillingCityField("Cluj-Napoca");
+        checkoutSteps.typeIntoPostcodeField("400301");
+        checkoutSteps.typeIntoPhoneNumberField("0748978563");
+        checkoutSteps.clickPlaceOrder();
+        checkoutSteps.verifyOrderConfirmed();
+        searchSteps.allSearchSteps("mk");
+        searchSteps.verifyIfStockChanged();
+
     }
 }

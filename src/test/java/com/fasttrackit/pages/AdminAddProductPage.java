@@ -39,16 +39,7 @@ public class AdminAddProductPage extends PageObject {
     private WebElementFacade publishButton;
 
     @FindBy(css = ".updated p")
-    private WebElementFacade productPublishedMessage;
-
-    //nu merge selectorul
-    @FindBy(css = "#cb-select-457")
-    private WebElementFacade sunglassesCheckbox;
-
-    @FindBy(css = "[aria-label='Move “Sunglasses MK” to the Trash']")
-    private WebElementFacade sunglassesTrashLink;
-
-
+    private WebElementFacade productChangedMessage;
 
     @FindBy(css = ".dropdown_product_cat")
     private WebElementFacade dropdownSelectCategory;
@@ -56,6 +47,14 @@ public class AdminAddProductPage extends PageObject {
     @FindBy(css = "[value='uncategorized']")
     private WebElementFacade uncategorizedProducts;
 
+    @FindBy (css = "#post-query-submit")
+    private WebElementFacade filterButton;
+
+    @FindBy (css =".row-title")
+    private WebElementFacade sunglassesLink;
+
+    @FindBy (css =".submitdelete")
+    private WebElementFacade deleteSunglassesLink;
 
 
     public void clickOnAddNewProductButton(){
@@ -98,16 +97,8 @@ public class AdminAddProductPage extends PageObject {
         clickOn(publishButton);
     }
 
-    public boolean verifyNewProductIsPublished(){
-        return productPublishedMessage.containsOnlyText("Product published. View Product");
-    }
-
-    public void clickOnSunglassesCheckBox() {
-        clickOn(sunglassesCheckbox);
-    }
-
-    public void clickOnSunglassesTrashLink(){
-        clickOn(sunglassesTrashLink);
+    public boolean verifyProductUpdated(String msg){
+        return productChangedMessage.containsOnlyText(msg);
     }
 
     public void clickOnSelectACategory(){
@@ -116,6 +107,18 @@ public class AdminAddProductPage extends PageObject {
 
     public void clickOnUncategorizedProducts(){
         clickOn(uncategorizedProducts);
+    }
+
+    public void clickOnFilterButton (){
+        clickOn(filterButton);
+    }
+
+    public void clickOnSunglassesLink (){
+        clickOn(sunglassesLink);
+    }
+
+    public void clickOnDeleteSunglassesLink(){
+        clickOn(deleteSunglassesLink);
     }
 
 

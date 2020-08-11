@@ -2,6 +2,7 @@ package com.fasttrackit.steps.serenity;
 
 import com.fasttrackit.pages.*;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
 public class CartSteps {
@@ -65,6 +66,13 @@ public class CartSteps {
     @Step
     public void verifyBeanieWasRemovedFromCart(){
         Assert.assertTrue(cartPage.verifyProductRemoved());
+    }
+
+    @Step
+    public void proceedToCheckoutSteps(){
+       clickAddProductToCartButton();
+       clickOnCartIcon();
+       clickOnProceedToCheckout();
     }
 
 

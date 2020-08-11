@@ -90,8 +90,13 @@ public class SearchSteps {
     }
 
     @Step
-    public void clickOnAdminLink(){
-        searchResultPage.clickOnAdminLink();
+    public void initialProductStock(){
+        searchResultPage.initialProductStock();
+    }
+
+    @Step
+    public void verifyIfStockChanged(){
+        Assert.assertTrue(searchResultPage.verifyIfStockChanged());
     }
 
 

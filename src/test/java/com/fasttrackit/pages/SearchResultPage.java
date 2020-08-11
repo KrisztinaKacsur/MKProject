@@ -53,6 +53,9 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = "[aria-haspopup='true'] .display-name")
     private WebElementFacade adminLink;
 
+    @FindBy (css=".stock")
+    private WebElementFacade productStockText;
+
 
     public boolean verifySingleProductWasFound(String productName) {
         return singleItem.containsOnlyText(productName);
@@ -115,10 +118,19 @@ public class SearchResultPage extends PageObject {
         return shopTitle.isDisplayed();
     }
 
-    public void clickOnAdminLink(){
-        clickOn(adminLink);
+    public int initialProductStock(){
+        String initialProductStock = productStockText.getText().replace(" in stock", "");
+        int initialProductStockInt = Integer.valueOf(initialProductStock);
+        return initialProductStockInt;
     }
 
-
+    public boolean verifyIfStockChanged() {
+        String productStockAfterPlacingOrder = productStockText.getText().replace(" in stock", "");
+        int productStockAfterPlacingOrder1 = Integer.valueOf(productStockAfterPlacingOrder);
+        if (initialProductStock() > productStockAfterPlacingOrder1) {
+            return true;
+        }
+        return false;
+    }
 
 }
