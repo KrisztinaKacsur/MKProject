@@ -37,7 +37,7 @@ public class CartTest extends BaseTest {
         cartSteps.clickOnShoppingCartLink();
         cartSteps.verifyBeanieInCart();
         cartSteps.removeFirstProductFromCart();
-        cartSteps.verifyBeanieWasRemovedFromCart();
+        cartSteps.verifyCartUpdated("“Beanie” removed. Undo?");
     }
 
     @Test
@@ -49,12 +49,21 @@ public class CartTest extends BaseTest {
         cartSteps.verifyProductAddedToCart("polo");
         cartSteps.clickOnCartLink();
         cartSteps.typeIntoCartQtyBox("3");
-
+        cartSteps.clickOnUpdateCartButton();
+        cartSteps.verifyCartUpdated("Cart updated.");
+        cartSteps.verifyIfPriceChanged(3);
     }
 
     @Test
     public void deleteProductFromCartTest(){
-        
+        cartSteps.openHomePage();
+        searchSteps.typeIntoSearchField("polo");
+        searchSteps.clickOnSearchIcon();
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.initialProductPrice();
+        cartSteps.verifyProductAddedToCart("polo");
+        cartSteps.clickOnCartLink();
+
     }
 
 }

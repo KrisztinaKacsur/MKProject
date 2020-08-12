@@ -11,6 +11,7 @@ public class CartSteps {
     private SearchResultPage searchResultPage;
     private CartPage cartPage;
     private ShopPage shopPage;
+    private int initialProductPrice;
 
     @Step
     public void openHomePage(){
@@ -63,8 +64,9 @@ public class CartSteps {
     }
 
     @Step
-    public void verifyBeanieWasRemovedFromCart(){
-        Assert.assertTrue(cartPage.verifyProductRemoved());
+    public void verifyCartUpdated(String message){
+        cartPage.waitForPageToLoad();
+        Assert.assertTrue(cartPage.cartUpdated(message));
     }
 
     @Step
@@ -76,11 +78,21 @@ public class CartSteps {
 
     @Step
     public void typeIntoCartQtyBox(String qty){
-        searchResultPage.typeIntoCartQtyBox(qty);
+        cartPage.typeIntoCartQtyBox(qty);
     }
 
+    @Step
+    public void clickOnUpdateCartButton(){
+        cartPage.clickOnUpdateCartButton();
+    }
 
+    @Step
+    public void initialProductPrice(){
+        initialProductPrice = cartPage.totalPriceAmount();
+    }
 
-
-
+    @Step
+    public void verifyIfPriceChanged(int offset){
+        Assert.assertTrue(cartPage.priceAfterQtyChanged(initialProductPrice,offset));
+    }
 }

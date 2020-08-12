@@ -18,9 +18,19 @@ public class CartPage extends PageObject {
     private WebElementFacade removeFirstProductFromCart;
 
     @FindBy(css = ".woocommerce-message")
-    private WebElementFacade productRemovedMessageFromCart;
+    private WebElementFacade cartUpdatedMessage;
 
+    @FindBy (css = "[type='number']")
+    private WebElementFacade cartQtyBox;
 
+    @FindBy (css = "[value='Update cart']")
+    private WebElementFacade updateCartButton;
+
+    @FindBy (css =".product-subtotal .woocommerce-Price-amount")
+    private WebElementFacade cartTotalPriceAmount;
+
+    @FindBy(css = ".blockUI.blockOverlay")
+    private WebElementFacade blockUiElement;
 
     public void clickProceedToCheckout() {
         clickOn(proceedToCheckoutButton);
@@ -34,9 +44,36 @@ public class CartPage extends PageObject {
         clickOn(removeFirstProductFromCart);
     }
 
-    public boolean verifyProductRemoved(){
-        System.out.println(productRemovedMessageFromCart.getText());
-        return productRemovedMessageFromCart.containsText("“Beanie” removed. Undo?");
+    public boolean cartUpdated(String message){
+        return cartUpdatedMessage.containsText(message);
+    }
+
+    public void typeIntoCartQtyBox(String qty){
+        typeInto(cartQtyBox,qty);
+    }
+
+    public void clickOnUpdateCartButton(){
+        waitFor(updateCartButton);
+        clickOn(updateCartButton);
+    }
+
+    public int totalPriceAmount() {
+        String productPriceText = cartTotalPriceAmount.getText().replace("lei", "").replace(".", "");
+        int productPrice = Integer.parseInt(productPriceText);
+        System.out.println(productPrice);
+        return productPrice;
+    }
+
+    public boolean priceAfterQtyChanged(int initialValue, int offset ){
+        int priceAfterUpdatedQty = totalPriceAmount();
+        System.out.println(priceAfterUpdatedQty);
+        if ((initialValue*offset) == (priceAfterUpdatedQty)){
+            return true;
+        } return false;
+    }
+
+    public void waitForPageToLoad(){
+        blockUiElement.waitUntilNotVisible();
     }
 
 
