@@ -58,6 +58,7 @@ public class CartPage extends PageObject {
     }
 
     public int totalPriceAmount() {
+        waitFor(proceedToCheckoutButton);
         String productPriceText = cartTotalPriceAmount.getText().replace("lei", "").replace(".", "");
         int productPrice = Integer.parseInt(productPriceText);
         System.out.println(productPrice);
@@ -67,15 +68,15 @@ public class CartPage extends PageObject {
     public boolean priceAfterQtyChanged(int initialValue, int offset ){
         int priceAfterUpdatedQty = totalPriceAmount();
         System.out.println(priceAfterUpdatedQty);
-        if ((initialValue*offset) == (priceAfterUpdatedQty)){
+        if ((initialValue * offset) == (priceAfterUpdatedQty)){
             return true;
-        } return false;
+        }
+        return false;
     }
 
     public void waitForPageToLoad(){
         blockUiElement.waitUntilNotVisible();
     }
-
 
 
 

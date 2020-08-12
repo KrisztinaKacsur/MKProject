@@ -48,10 +48,12 @@ public class CartTest extends BaseTest {
         cartSteps.clickAddProductToCartButton();
         cartSteps.verifyProductAddedToCart("polo");
         cartSteps.clickOnCartLink();
+        cartSteps.initialProductPrice();
         cartSteps.typeIntoCartQtyBox("3");
         cartSteps.clickOnUpdateCartButton();
         cartSteps.verifyCartUpdated("Cart updated.");
         cartSteps.verifyIfPriceChanged(3);
+
     }
 
     @Test
@@ -60,7 +62,6 @@ public class CartTest extends BaseTest {
         searchSteps.typeIntoSearchField("polo");
         searchSteps.clickOnSearchIcon();
         cartSteps.clickAddProductToCartButton();
-        cartSteps.initialProductPrice();
         cartSteps.verifyProductAddedToCart("polo");
         cartSteps.clickOnCartLink();
 
