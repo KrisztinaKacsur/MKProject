@@ -29,7 +29,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void addOneProductToCart() {
+    public void addOneProductToCartTest() {
         cartSteps.openHomePage();
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         cartSteps.clickOnShopLink();
@@ -38,6 +38,23 @@ public class CartTest extends BaseTest {
         cartSteps.verifyBeanieInCart();
         cartSteps.removeFirstProductFromCart();
         cartSteps.verifyBeanieWasRemovedFromCart();
+    }
+
+    @Test
+    public void changeQtyInCartTest(){
+        cartSteps.openHomePage();
+        searchSteps.typeIntoSearchField("polo");
+        searchSteps.clickOnSearchIcon();
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.verifyProductAddedToCart("polo");
+        cartSteps.clickOnCartLink();
+        cartSteps.typeIntoCartQtyBox("3");
+
+    }
+
+    @Test
+    public void deleteProductFromCartTest(){
+        
     }
 
 }

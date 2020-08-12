@@ -57,6 +57,9 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".stock")
     private WebElementFacade productStockText;
 
+    @FindBy
+    private WebElementFacade cartQtyBox;
+
 
     public boolean verifySingleProductWasFound(String productName) {
         return singleItem.containsOnlyText(productName);
@@ -132,6 +135,11 @@ public class SearchResultPage extends PageObject {
             return true;
         }
         return false;
+    }
+
+    public void typeIntoCartQtyBox(String qty){
+        clickOn(cartQtyBox);
+        typeInto(cartQtyBox,qty);
     }
 
 }

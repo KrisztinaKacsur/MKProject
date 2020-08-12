@@ -2,7 +2,6 @@ package com.fasttrackit.steps.serenity;
 
 import com.fasttrackit.pages.*;
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 
 public class CartSteps {
@@ -29,7 +28,7 @@ public class CartSteps {
     }
 
     @Step
-    public void clickOnCartIcon() {
+    public void clickOnCartLink() {
         searchResultPage.clickOnCartLink();
     }
 
@@ -71,8 +70,13 @@ public class CartSteps {
     @Step
     public void proceedToCheckoutSteps(){
        clickAddProductToCartButton();
-       clickOnCartIcon();
+       clickOnCartLink();
        clickOnProceedToCheckout();
+    }
+
+    @Step
+    public void typeIntoCartQtyBox(String qty){
+        searchResultPage.typeIntoCartQtyBox(qty);
     }
 
 

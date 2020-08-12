@@ -30,7 +30,7 @@ public class CheckoutTest extends BaseTest {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
-        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnCartLink();
         cartSteps.clickOnProceedToCheckout();
         checkoutSteps.typeIntoFirstNameField("Krisztina");
         checkoutSteps.typeIntoLastNameField("Kacsur");
@@ -48,7 +48,7 @@ public class CheckoutTest extends BaseTest {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
-        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnCartLink();
         cartSteps.clickOnProceedToCheckout();
         checkoutSteps.typeIntoFirstNameField("");
         checkoutSteps.typeIntoLastNameField("");
@@ -65,7 +65,7 @@ public class CheckoutTest extends BaseTest {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
-        cartSteps.clickOnCartIcon();
+        cartSteps.clickOnCartLink();
         cartSteps.clickOnProceedToCheckout();
         checkoutSteps.typeIntoFirstNameField("Krisztina");
         checkoutSteps.typeIntoLastNameField("Kacsur");
@@ -79,9 +79,8 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     public void productQtyChangedAfterPlacingOrderTest(){
-        //setup
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
-        searchSteps.allSearchSteps("mk");
+        searchSteps.allSearchSteps("polo");
         searchSteps.initialProductStock();
         cartSteps.proceedToCheckoutSteps();
         checkoutSteps.typeIntoFirstNameField("Mihai");
@@ -92,9 +91,7 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.typeIntoPhoneNumberField("0748978563");
         checkoutSteps.clickPlaceOrder();
         checkoutSteps.verifyOrderConfirmed();
-        searchSteps.allSearchSteps("mk");
+        searchSteps.allSearchSteps("polo");
         searchSteps.verifyIfStockChanged();
-        //teardown
-
     }
 }
