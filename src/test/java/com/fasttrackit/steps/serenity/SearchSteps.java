@@ -100,5 +100,4 @@ public class SearchSteps {
         Assert.assertTrue(searchResultPage.verifyIfStockChanged(initialProductstk, 1));
     }
 
-
 }

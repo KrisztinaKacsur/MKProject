@@ -32,6 +32,13 @@ public class CartPage extends PageObject {
     @FindBy(css = ".blockUI.blockOverlay")
     private WebElementFacade blockUiElement;
 
+    @FindBy(css = ".remove")
+    private WebElementFacade removeFromCartIcon;
+
+    @FindBy(css = ".amount")
+    private WebElementFacade cartSum;
+
+
     public void clickProceedToCheckout() {
         clickOn(proceedToCheckoutButton);
     }
@@ -60,14 +67,12 @@ public class CartPage extends PageObject {
     public int totalPriceAmount() {
         waitFor(proceedToCheckoutButton);
         String productPriceText = cartTotalPriceAmount.getText().replace("lei", "").replace(".", "");
-        int productPrice = Integer.parseInt(productPriceText);
-        System.out.println(productPrice);
-        return productPrice;
+        int productPriceInt = Integer.parseInt(productPriceText);
+        return productPriceInt;
     }
 
     public boolean priceAfterQtyChanged(int initialValue, int offset ){
         int priceAfterUpdatedQty = totalPriceAmount();
-        System.out.println(priceAfterUpdatedQty);
         if ((initialValue * offset) == (priceAfterUpdatedQty)){
             return true;
         }
@@ -78,6 +83,25 @@ public class CartPage extends PageObject {
         blockUiElement.waitUntilNotVisible();
     }
 
+    public void clickOnRemoveFromCartIcon(){
+        clickOn(removeFromCartIcon);
+    }
+
+    public int verifyCartSumIsZero() {
+        String cartSumText = cartSum.getText().replace("LEI","").replace(".","");
+        int cartSumInt = Integer.parseInt(cartSumText);
+        System.out.println(cartSumInt);
+        return cartSumInt;
+    }
+
+    public boolean sumInCartIsZero() {
+        int sum = 000;
+        if (verifyCartSumIsZero() == sum ){
+            System.out.println(sum);
+            return true;
+        }
+        return false;
+    }
 
 
 }

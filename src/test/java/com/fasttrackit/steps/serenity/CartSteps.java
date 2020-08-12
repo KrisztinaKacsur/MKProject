@@ -95,4 +95,15 @@ public class CartSteps {
     public void verifyIfPriceChanged(int offset){
         Assert.assertTrue(cartPage.priceAfterQtyChanged(initialProductPrice,offset));
     }
+
+    @Step
+    public void clickOnRemoveFromCartIcon(){
+        cartPage.clickOnRemoveFromCartIcon();
+    }
+
+    @Step
+    public void verifyCartSum(){
+        Assert.assertTrue(cartPage.sumInCartIsZero());
+    }
+
 }

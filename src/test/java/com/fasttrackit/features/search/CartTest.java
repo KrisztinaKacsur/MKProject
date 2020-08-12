@@ -22,8 +22,7 @@ public class CartTest extends BaseTest {
     @Test
     public void addToCartSingleProductBySearchTest() {
         cartSteps.openHomePage();
-        searchSteps.typeIntoSearchField("cap");
-        searchSteps.clickOnSearchIcon();
+        searchSteps.search("cap");
         cartSteps.clickAddProductToCartButton();
         cartSteps.verifyProductAddedToCart("cap");
     }
@@ -36,6 +35,7 @@ public class CartTest extends BaseTest {
         cartSteps.addBeanieToCart();
         cartSteps.clickOnShoppingCartLink();
         cartSteps.verifyBeanieInCart();
+        //avem nevoie de acesti pasi aici?
         cartSteps.removeFirstProductFromCart();
         cartSteps.verifyCartUpdated("“Beanie” removed. Undo?");
     }
@@ -43,8 +43,7 @@ public class CartTest extends BaseTest {
     @Test
     public void changeQtyInCartTest(){
         cartSteps.openHomePage();
-        searchSteps.typeIntoSearchField("polo");
-        searchSteps.clickOnSearchIcon();
+        searchSteps.search("polo");
         cartSteps.clickAddProductToCartButton();
         cartSteps.verifyProductAddedToCart("polo");
         cartSteps.clickOnCartLink();
@@ -59,12 +58,27 @@ public class CartTest extends BaseTest {
     @Test
     public void deleteProductFromCartTest(){
         cartSteps.openHomePage();
-        searchSteps.typeIntoSearchField("polo");
-        searchSteps.clickOnSearchIcon();
+        searchSteps.search("polo");
         cartSteps.clickAddProductToCartButton();
         cartSteps.verifyProductAddedToCart("polo");
         cartSteps.clickOnCartLink();
+        cartSteps.clickOnRemoveFromCartIcon();
+        cartSteps.verifyCartUpdated("“Polo” removed. Undo?");
+    }
 
+    @Test
+    public void cartIsEmptyTest(){
+        cartSteps.openHomePage();
+        searchSteps.search("polo");
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.verifyProductAddedToCart("polo");
+        searchSteps.search("album");
+        cartSteps.clickAddProductToCartButton();
+        cartSteps.verifyProductAddedToCart("album");
+        cartSteps.clickOnCartLink();
+        cartSteps.clickOnRemoveFromCartIcon();
+        cartSteps.clickOnRemoveFromCartIcon();
+        cartSteps.verifyCartSum();
     }
 
 }
