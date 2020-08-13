@@ -82,7 +82,8 @@ public class SearchResultPage extends PageObject {
     }
 
     public boolean verifyProductIsAddedToCart(String productName) {
-        return productAddedToCartMessage.containsText('"' + productName + '"' + " " + " has been added to your cart.");
+        return productAddedToCartMessage.containsText('"' + productName + '"' + " " +
+                                                       " has been added to your cart.");
     }
 
     public void clickOnCartLink() {
