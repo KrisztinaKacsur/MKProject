@@ -139,11 +139,11 @@ public class SearchResultPage extends PageObject {
         return false;
     }
 
-    public void selectSortByDropdown(String visibleText){
+    public void selectSortByDropdown(String visibleText) {
         sortByDropdownSelect.selectByVisibleText(visibleText);
     }
 
-    public int getProductPrice(){
+    public int getProductPrice() {
         WebElement firstProductPrice = searchResultList.get(0)
                 .findElement(By.cssSelector(".woocommerce-Price-amount"));
         String firstPrice = firstProductPrice.getText().replace("lei", "").replace(".", "");
@@ -167,9 +167,5 @@ public class SearchResultPage extends PageObject {
         }
         return false;
     }
-
-
-
-
 
 }

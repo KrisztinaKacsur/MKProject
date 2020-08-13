@@ -25,6 +25,8 @@ public class CartTest extends BaseTest {
         searchSteps.search("cap");
         cartSteps.clickAddProductToCartButton();
         cartSteps.verifyProductAddedToCart("cap");
+        cartSteps.clickOnShoppingCartLink();
+        cartSteps.removeFirstProductFromCart();
     }
 
     @Test
@@ -40,7 +42,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void changeQtyInCartTest(){
+    public void changeQtyInCartTest() {
         cartSteps.openHomePage();
         searchSteps.search("polo");
         cartSteps.clickAddProductToCartButton();
@@ -51,11 +53,10 @@ public class CartTest extends BaseTest {
         cartSteps.clickOnUpdateCartButton();
         cartSteps.verifyCartUpdated("Cart updated.");
         cartSteps.verifyIfPriceChanged(3);
-
     }
 
     @Test
-    public void deleteProductFromCartTest(){
+    public void deleteProductFromCartTest() {
         cartSteps.openHomePage();
         searchSteps.search("polo");
         cartSteps.clickAddProductToCartButton();
@@ -66,7 +67,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void cartIsEmptyTest(){
+    public void cartIsEmptyTest() {
         cartSteps.openHomePage();
         searchSteps.search("polo");
         cartSteps.clickAddProductToCartButton();

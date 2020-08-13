@@ -101,22 +101,22 @@ public class SearchSteps {
     }
 
     @Step
-    public void sortByLowToHigh(){
+    public void sortByLowToHigh() {
         searchResultPage.selectSortByDropdown("Sort by price: low to high");
     }
 
     @Step
-    public void sortByHighToLow(){
+    public void sortByHighToLow() {
         searchResultPage.selectSortByDropdown("Sort by price: high to low");
     }
 
     @Step
-    public void getProductPrice(){
+    public void getProductPrice() {
         searchResultPage.getProductPrice();
     }
 
     @Step
-    public void checkLowestProductPrice(){
+    public void checkLowestProductPrice() {
         Assert.assertTrue(searchResultPage.checkLowestProductPrice(initialProductPrice));
     }
 
@@ -124,4 +124,5 @@ public class SearchSteps {
     public void checkHighestPrice() {
         Assert.assertTrue(searchResultPage.checkHighestProductPrice(initialProductPrice));
     }
+
 }

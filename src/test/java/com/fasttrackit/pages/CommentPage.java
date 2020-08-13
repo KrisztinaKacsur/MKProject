@@ -41,7 +41,7 @@ public class CommentPage extends PageObject {
     private WebElementFacade commentMovedToTrash;
 
 
-    public void typeIntoCommentTextBox(String commentText){
+    public void typeIntoCommentTextBox(String commentText) {
         typeInto(commentTextBox, commentText);
     }
 
@@ -49,19 +49,19 @@ public class CommentPage extends PageObject {
         clickOn(postCommentButton);
     }
 
-    public boolean verifyInCommentsArea(String myComment){
+    public boolean verifyInCommentsArea(String myComment) {
         return commentsArea.containsText(myComment);
     }
 
-    public void typeIntoCommentTextBoxNotLoggedIn(String myComment){
+    public void typeIntoCommentTextBoxNotLoggedIn(String myComment) {
         typeInto(notLoggedInCommentTextBox, myComment);
     }
 
-    public void typeNameNotLoggedIn(String name){
+    public void typeNameNotLoggedIn(String name) {
         typeInto(notLoggedInCommentNameField, name);
     }
 
-    public void typeEmailNotLoggedIn(String email){
+    public void typeEmailNotLoggedIn(String email) {
         typeInto(notLoggedInEmailField, email);
     }
 
@@ -69,20 +69,20 @@ public class CommentPage extends PageObject {
         clickOn(notLoggedInPostCommentButton);
     }
 
-    public boolean verifyInCommentsAreaNotLoggedIn(String myComment){
+    public boolean verifyInCommentsAreaNotLoggedIn(String myComment) {
         return notLoggedInCommentsArea.containsText(myComment);
     }
 
-    public void hoverOver(){
+    public void hoverOver() {
         Actions actions = new Actions(getDriver());
         actions.moveToElement(firstCommentRow).perform();
     }
 
-    public void clickOnDeleteFirstComment(){
+    public void clickOnDeleteFirstComment() {
         clickOn(deleteFirstComment);
     }
 
-    public boolean verifyIfCommentWasMovedToTrash(){
+    public boolean verifyIfCommentWasMovedToTrash() {
        return  commentMovedToTrash.containsOnlyText("Comment by kricsk3 moved to the trash. Undo");
     }
 

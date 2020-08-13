@@ -57,39 +57,39 @@ public class AdminAddProductPage extends PageObject {
     private WebElementFacade deleteSunglassesLink;
 
 
-    public void clickOnAddNewProductButton(){
+    public void clickOnAddNewProductButton() {
         clickOn(addNewProductButton);
     }
 
-    public void typeIntoNewProductTitle(String productName){
+    public void typeIntoNewProductTitle(String productName) {
         typeInto(newProductTitle, productName);
     }
 
-    public void clickOnAddMediaButton(){
+    public void clickOnAddMediaButton() {
         clickOn(setProductImageLink);
     }
 
-    public void clickOnSunglassesImage(){
+    public void clickOnSunglassesImage() {
         clickOn(sunglassesImage);
     }
 
-    public void clickOnMediaInsertButton(){
+    public void clickOnMediaInsertButton() {
         clickOn(setProductImageButton);
     }
 
-    public void typeIntoRegularPriceFiled(String price){
+    public void typeIntoRegularPriceFiled(String price) {
         typeInto(regularPriceField, price);
     }
 
-    public void clickOnInventoryLink(){
+    public void clickOnInventoryLink() {
         clickOn(inventoryLink);
     }
 
-    public void clickOnManageStockCheckbox(){
+    public void clickOnManageStockCheckbox() {
         clickOn(manageStockCheckBox);
     }
 
-    public void typeIntoStockQuantityField(String qty){
+    public void typeIntoStockQuantityField(String qty) {
         typeInto(stockQuantityField, qty );
     }
 
@@ -97,33 +97,28 @@ public class AdminAddProductPage extends PageObject {
         clickOn(publishButton);
     }
 
-    public boolean verifyProductUpdated(String msg){
+    public boolean verifyProductUpdated(String msg) {
         return productChangedMessage.containsOnlyText(msg);
     }
 
-    public void clickOnSelectACategory(){
+    public void clickOnSelectACategory() {
         clickOn(dropdownSelectCategory);
     }
 
-    public void clickOnUncategorizedProducts(){
+    public void clickOnUncategorizedProducts() {
         clickOn(uncategorizedProducts);
     }
 
-    public void clickOnFilterButton (){
+    public void clickOnFilterButton () {
         clickOn(filterButton);
     }
 
-    public void clickOnSunglassesLink (){
+    public void clickOnSunglassesLink () {
         clickOn(sunglassesLink);
     }
 
-    public void clickOnDeleteSunglassesLink(){
+    public void clickOnDeleteSunglassesLink() {
         clickOn(deleteSunglassesLink);
     }
-
-
-
-
-
 
 }

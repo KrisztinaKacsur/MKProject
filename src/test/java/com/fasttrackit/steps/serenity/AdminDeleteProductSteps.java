@@ -11,36 +11,38 @@ public class AdminDeleteProductSteps {
     private AdminAddProductPage adminAddProductPage;
 
     @Step
-    public void clickOnAllProductsLink(){
+    public void clickOnAllProductsLink() {
         adminHomePage.clickOnAllProductsLink();
     }
 
     @Step
-    public void clickOnSelectACategory(){
+    public void clickOnSelectACategory() {
         adminAddProductPage.clickOnSelectACategory();
     }
+
     @Step
-    public void clickOnUncategorizedProducts(){
+    public void clickOnUncategorizedProducts() {
         adminAddProductPage.clickOnUncategorizedProducts();
     }
 
     @Step
-    public void clickOnFilterButton(){
+    public void clickOnFilterButton() {
         adminAddProductPage.clickOnFilterButton();
     }
 
     @Step
-    public void clickOnSunglassesLink(){
+    public void clickOnSunglassesLink() {
         adminAddProductPage.clickOnSunglassesLink();
     }
 
     @Step
-    public void clickOnDeleteSunglassesLink(){
+    public void clickOnDeleteSunglassesLink() {
         adminAddProductPage.clickOnDeleteSunglassesLink();
     }
 
     @Step
-    public void verifyProductUpdated(String msg){
+    public void verifyProductUpdated(String msg) {
         Assert.assertTrue(adminAddProductPage.verifyProductUpdated(msg));
     }
+
 }

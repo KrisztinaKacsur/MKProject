@@ -54,55 +54,50 @@ public class MyAccountPage extends PageObject {
     private WebElementFacade myAccountPageErrorMessage;
 
 
-
-    public void setEmailField (){
+    public void setEmailField () {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(1000);
         String randomEmail = "krisztina" + randomInt + "@gmail.com";
         typeInto(emailField, randomEmail);
     }
 
-    public void setPasswordField(String userName){
+    public void setPasswordField(String userName) {
         typeInto(passwordField, userName);
     }
 
-    public void clickOnRegisterButton(){
+    public void clickOnRegisterButton() {
         clickOn(registerButton);
     }
 
-    public boolean verifyRegistered(){
+    public boolean verifyRegistered() {
         return myAccountTitle.containsOnlyText("MY ACCOUNT");
     }
 
-    public void setUserNameOrEmailField(String userNameOrEmail){
+    public void setUserNameOrEmailField(String userNameOrEmail) {
         typeInto(userNameOrEmailField, userNameOrEmail);
     }
 
-    public void setLoginPassword(String pass){
+    public void setLoginPassword(String pass) {
         typeInto(loginPassword,pass);
     }
 
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() {
         clickOn(loginButton);
     }
 
-    public boolean verifyLogin(){
-        return logoutLink.containsOnlyText("Logout");
-    }
-
-    public boolean verifyLoginFailed(){
+    public boolean verifyLoginFailed() {
         return loginLink.containsOnlyText("Login");
     }
 
-    public void clickOnHomeLink(){
+    public void clickOnHomeLink() {
         clickOn(homeLink);
     }
 
-    public boolean verifyLoggedInUser(String username){
+    public boolean verifyLoggedInUser(String username) {
         return WelcomeLoggedInUserNameLink.containsText(username);
     }
 
-    public void clickOnAdminSiteLink(){
+    public void clickOnAdminSiteLink() {
         clickOn(adminSiteLink);
     }
 
@@ -110,9 +105,8 @@ public class MyAccountPage extends PageObject {
         clickOn(shopLink);
     }
 
-    public boolean myAccountPassOrEmailErrorMessage(String errorMsg){
+    public boolean myAccountPassOrEmailErrorMessage(String errorMsg) {
         return myAccountPageErrorMessage.containsOnlyText(errorMsg);
     }
-
 
 }

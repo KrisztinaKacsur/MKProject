@@ -11,17 +11,17 @@ public class RegisterSteps {
     private MyAccountPage myAccountPage;
 
     @Step
-    public void openHomepage(){
+    public void openHomepage() {
         homePage.open();
     }
 
     @Step
-    public void clickOnLoginLink(){
+    public void clickOnLoginLink() {
         homePage.clickOnLogin();
     }
 
     @Step
-    public void typeIntoEmailField(){
+    public void typeIntoEmailField() {
         myAccountPage.setEmailField();
     }
 
@@ -36,14 +36,13 @@ public class RegisterSteps {
     }
 
     @Step
-    public void verifyRegistration(){
+    public void verifyRegistration() {
         Assert.assertTrue(myAccountPage.verifyRegistered());
     }
 
     @Step
-    public void verifyMyAccountPassOrEmailErrorMessage(String errorMsg){
+    public void verifyMyAccountPassOrEmailErrorMessage(String errorMsg) {
         Assert.assertTrue(myAccountPage.myAccountPassOrEmailErrorMessage(errorMsg));
     }
-
 
 }

@@ -47,19 +47,19 @@ public class CartPage extends PageObject {
         return productBeanieInCart.containsText("Beanie");
     }
 
-    public void clickOnRemoveFirstProductFromCart(){
+    public void clickOnRemoveFirstProductFromCart() {
         clickOn(removeFirstProductFromCart);
     }
 
-    public boolean cartUpdated(String message){
+    public boolean cartUpdated(String message) {
         return cartUpdatedMessage.containsText(message);
     }
 
-    public void typeIntoCartQtyBox(String qty){
+    public void typeIntoCartQtyBox(String qty) {
         typeInto(cartQtyBox,qty);
     }
 
-    public void clickOnUpdateCartButton(){
+    public void clickOnUpdateCartButton() {
         waitFor(updateCartButton);
         clickOn(updateCartButton);
     }
@@ -71,7 +71,7 @@ public class CartPage extends PageObject {
         return productPriceInt;
     }
 
-    public boolean priceAfterQtyChanged(int initialValue, int offset ){
+    public boolean priceAfterQtyChanged(int initialValue, int offset ) {
         int priceAfterUpdatedQty = totalPriceAmount();
         if ((initialValue * offset) == (priceAfterUpdatedQty)){
             return true;
@@ -79,11 +79,11 @@ public class CartPage extends PageObject {
         return false;
     }
 
-    public void waitForPageToLoad(){
+    public void waitForPageToLoad() {
         blockUiElement.waitUntilNotVisible();
     }
 
-    public void clickOnRemoveFromCartIcon(){
+    public void clickOnRemoveFromCartIcon() {
         clickOn(removeFromCartIcon);
     }
 
@@ -102,6 +102,5 @@ public class CartPage extends PageObject {
         }
         return false;
     }
-
 
 }

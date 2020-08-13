@@ -17,11 +17,11 @@ public class ShopPage extends PageObject {
     private WebElementFacade shoppingCartLink;
 
 
-    public void addBeanieToCart(){
+    public void addBeanieToCart() {
         clickOn(addBeanieToCartButton);
     }
 
-    public void clickOnShoppingCartLink(){
+    public void clickOnShoppingCartLink() {
         clickOn(shoppingCartLink);
     }
 

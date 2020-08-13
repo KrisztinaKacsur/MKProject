@@ -28,7 +28,6 @@ public class RegisterTest extends BaseTest {
         registerSteps.typeIntoPasswordField("avioncumotoriamasipeminenzbnor");
         registerSteps.clickOnRegisterButton();
         registerSteps.verifyMyAccountPassOrEmailErrorMessage("Error: Please provide a valid email address.");
-
     }
 
     @Test
@@ -47,8 +46,5 @@ public class RegisterTest extends BaseTest {
         registerSteps.clickOnRegisterButton();
         registerSteps.verifyMyAccountPassOrEmailErrorMessage("Error: Please provide a valid email address.");
     }
-
-
-
 
 }

@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
     SearchSteps searchSteps;
 
     @Test
-    public void searchForAProductWithOneResultTest () {
+    public void searchForAProductWithOneResultTest() {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("cap");
         searchSteps.clickOnSearchIcon();
@@ -19,7 +19,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchForAProductWithMultipleResultsTest () {
+    public void searchForAProductWithMultipleResultsTest() {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
@@ -27,7 +27,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchSpecialCharacterTest (){
+    public void searchSpecialCharacterTest() {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("#$%");
         searchSteps.clickOnSearchIcon();
@@ -42,7 +42,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void searchResultIsMaintainedAfterNavigateBackTest (){
+    public void searchResultIsMaintainedAfterNavigateBackTest() {
         searchSteps.navigateToHomepage();
         searchSteps.typeIntoSearchField("hoodie");
         searchSteps.clickOnSearchIcon();
@@ -54,7 +54,7 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void sortProductsByLowToHighPrice(){
+    public void sortProductsByLowToHighPriceTest() {
         searchSteps.navigateToHomepage();
         searchSteps.search("banner");
         searchSteps.sortByLowToHigh();
@@ -63,16 +63,12 @@ public class SearchTest extends BaseTest {
     }
 
     @Test
-    public void sortProductsByHighToLowPrice(){
+    public void sortProductsByHighToLowPriceTest(){
         searchSteps.navigateToHomepage();
         searchSteps.search("banner");
         searchSteps.sortByHighToLow();
         searchSteps.getProductPrice();
         searchSteps.checkHighestPrice();
     }
-
-
-
-
 
 }

@@ -20,7 +20,7 @@ public class AdminAddNewProductTest extends BaseTest {
     SearchSteps searchSteps;
 
     @Test
-    public void addNewProductToSiteTest(){
+    public void addNewProductToSiteTest() {
         loginSteps.allLoginSteps(Constants.ADMIN_USER_NAME, Constants.ADMIN_USER_PASS);
         loginSteps.navigateToAdminSite();
         adminAddProductSteps.clickOnAllProductsLink();
@@ -39,6 +39,6 @@ public class AdminAddNewProductTest extends BaseTest {
         searchSteps.allSearchSteps("Sunglasses MK");
         searchSteps.verifyShopIsDisplayed();
         searchSteps.verifySingleProductIsFound("Sunglasses MK");
-
     }
+
 }

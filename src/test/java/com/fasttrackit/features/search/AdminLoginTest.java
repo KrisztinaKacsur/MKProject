@@ -12,7 +12,7 @@ public class AdminLoginTest extends BaseTest {
     LoginSteps loginSteps;
 
     @Test
-    public void loginAsAdminTest(){
+    public void loginAsAdminTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.ADMIN_USER_NAME);
@@ -22,7 +22,7 @@ public class AdminLoginTest extends BaseTest {
     }
 
     @Test
-    public void navigateToAdminPage() {
+    public void navigateToAdminPageTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.ADMIN_USER_NAME);
@@ -31,4 +31,5 @@ public class AdminLoginTest extends BaseTest {
         loginSteps.navigateToAdminSite();
         loginSteps.verifyLoggedInAdminInterface("admin");
     }
+
 }

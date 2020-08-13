@@ -11,7 +11,7 @@ public class OrderConfirmedPage extends PageObject {
     @FindBy(css = ".post-title")
     private WebElementFacade orderReceivedText;
 
-    public boolean verifyOrderIsReceived(){
+    public boolean verifyOrderIsReceived() {
         waitFor(orderReceivedText);
         return orderReceivedText.containsOnlyText("ORDER RECEIVED");
     }

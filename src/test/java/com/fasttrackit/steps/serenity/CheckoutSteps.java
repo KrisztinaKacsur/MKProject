@@ -13,7 +13,7 @@ public class CheckoutSteps {
 
 
     @Step
-    public void typeIntoFirstNameField(String firstName){
+    public void typeIntoFirstNameField(String firstName) {
         checkOutPage.setBillingFirstNameField(firstName);
     }
 
@@ -23,12 +23,12 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void typeIntoBillingAddress(String billingAddress){
+    public void typeIntoBillingAddress(String billingAddress) {
         checkOutPage.setBillingAddress(billingAddress);
     }
 
     @Step
-    public void typeIntoBillingCityField(String billingCityName){
+    public void typeIntoBillingCityField(String billingCityName) {
         checkOutPage.setBillingCityField(billingCityName);
     }
 
@@ -38,31 +38,29 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void typeIntoPhoneNumberField(String phoneNumber){
+    public void typeIntoPhoneNumberField(String phoneNumber) {
         checkOutPage.setPhoneNumberField(phoneNumber);
     }
 
     @Step
-    public void clickPlaceOrder(){
+    public void clickPlaceOrder() {
         checkOutPage.clickPlaceOrderButton();
     }
 
     @Step
-    public void verifyOrderConfirmed(){
+    public void verifyOrderConfirmed() {
         checkOutPage.waitForPageToLoad();
         Assert.assertTrue(orderConfirmedPage.verifyOrderIsReceived());
     }
 
     @Step
-    public void verifyMandatoryFieldsErrorMessage(){
+    public void verifyMandatoryFieldsErrorMessage() {
        Assert.assertTrue(checkOutPage.verifyErrorMessageIsDisplayed());
     }
 
     @Step
-    public void verifyBillingPhoneNumberErrorMsg(String errorMsg){
+    public void verifyBillingPhoneNumberErrorMsg(String errorMsg) {
         Assert.assertTrue(checkOutPage.verifyBillingPhoneNumberErrorMsg(errorMsg));
     }
-
-
 
 }

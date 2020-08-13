@@ -18,12 +18,12 @@ public class LoginSteps {
     }
 
     @Step
-    public void clickLoginLink(){
+    public void clickLoginLink() {
         homePage.clickOnLogin();
     }
 
     @Step
-    public void setUserNameOrEmailField(String userNameOrEmail){
+    public void setUserNameOrEmailField(String userNameOrEmail) {
         myAccountPage.setUserNameOrEmailField(userNameOrEmail);
     }
 
@@ -33,17 +33,17 @@ public class LoginSteps {
     }
 
     @Step
-    public void clickOnLoginButton(){
+    public void clickOnLoginButton() {
         myAccountPage.clickOnLoginButton();
     }
 
     @Step
-    public void clickOnLogoutLink(){
+    public void clickOnLogoutLink() {
         homePage.clickOnLogoutLink();
     }
 
     @Step
-    public void verifyLoginFailed(){
+    public void verifyLoginFailed() {
         Assert.assertTrue(myAccountPage.verifyLoginFailed());
     }
 
@@ -62,17 +62,17 @@ public class LoginSteps {
     }
 
     @Step
-    public void navigateToAdminSite(){
+    public void navigateToAdminSite() {
         myAccountPage.clickOnAdminSiteLink();
     }
 
     @Step
-    public void verifyLoggedInAdminInterface(String userName){
+    public void verifyLoggedInAdminInterface(String userName) {
         adminHomePage.verifyLoggedInOnAdminPage(userName);
     }
 
     @Step
-    public void verifyUserNameRequiredMessage (String errorMsg){
+    public void verifyUserNameRequiredMessage (String errorMsg) {
         Assert.assertTrue(homePage.verifyUserNameRequiredMessage(errorMsg));
     }
 

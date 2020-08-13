@@ -11,12 +11,12 @@ public class AdminAddProductSteps {
     private AdminAddProductPage adminAddProductPage;
 
     @Step
-    public void clickOnAllProductsLink(){
+    public void clickOnAllProductsLink() {
         adminHomePage.clickOnAllProductsLink();
     }
 
     @Step
-    public void clickOnNewProductButton(){
+    public void clickOnNewProductButton() {
         adminAddProductPage.clickOnAddNewProductButton();
     }
 
@@ -26,27 +26,27 @@ public class AdminAddProductSteps {
     }
 
     @Step
-    public void clickOnAddMediaButton(){
+    public void clickOnAddMediaButton() {
         adminAddProductPage.clickOnAddMediaButton();
     }
 
     @Step
-    public void clickOnSunglassesImage(){
+    public void clickOnSunglassesImage() {
         adminAddProductPage.clickOnSunglassesImage();
     }
 
     @Step
-    public void clickOnMediaInsertButton(){
+    public void clickOnMediaInsertButton() {
         adminAddProductPage.clickOnMediaInsertButton();
     }
 
     @Step
-    public void typeIntoRegularPriceFiled(String price){
+    public void typeIntoRegularPriceFiled(String price) {
         adminAddProductPage.typeIntoRegularPriceFiled(price);
     }
 
     @Step
-    public void clickOnInventoryLink(){
+    public void clickOnInventoryLink() {
         adminAddProductPage.clickOnInventoryLink();
     }
 
@@ -56,17 +56,17 @@ public class AdminAddProductSteps {
     }
 
     @Step
-    public void typeIntoStockQuantityField(String qty){
+    public void typeIntoStockQuantityField(String qty) {
         adminAddProductPage.typeIntoStockQuantityField(qty);
     }
 
     @Step
-    public void clickOnPublishButton(){
+    public void clickOnPublishButton() {
         adminAddProductPage.clickOnPublishButton();
     }
 
     @Step
-    public void verifyProductUpdated(String msg){
+    public void verifyProductUpdated(String msg) {
         Assert.assertTrue(adminAddProductPage.verifyProductUpdated(msg));
     }
 

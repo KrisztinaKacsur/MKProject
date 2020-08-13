@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     LoginSteps loginSteps;
 
     @Test
-    public void loginWithCorrectCredentialsTest(){
+    public void loginWithCorrectCredentialsTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginWithIncorrectEmailTest(){
+    public void loginWithIncorrectEmailTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField("kricsk@gmail.com");
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginWithIncorrectPasswordTest(){
+    public void loginWithIncorrectPasswordTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
@@ -41,9 +41,8 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
-
     @Test
-    public void loginAttemptWithoutEmailTest(){
+    public void loginAttemptWithoutEmailTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField("");
@@ -52,9 +51,8 @@ public class LoginTest extends BaseTest {
         loginSteps.verifyLoginFailed();
     }
 
-
     @Test
-    public void loginAttemptWithoutPassTest(){
+    public void loginAttemptWithoutPassTest() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.setUserNameOrEmailField(Constants.USER_NAME);
@@ -64,15 +62,11 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginWithoutUserAndPassword(){
+    public void loginWithoutUserAndPassword() {
         loginSteps.openHomepage();
         loginSteps.clickLoginLink();
         loginSteps.clickOnLoginButton();
         loginSteps.verifyUserNameRequiredMessage("Error: Username is required.");
-
     }
-
-
-
 
 }

@@ -20,7 +20,8 @@ public class AdminHomePage extends PageObject {
     @FindBy (css = ".dashicons-admin-comments ")
     private WebElementFacade commentsLink;
 
-    public boolean verifyLoggedInOnAdminPage(String userName){
+
+    public boolean verifyLoggedInOnAdminPage(String userName) {
         return adminWelcomeMessage.containsText(userName);
     }
 
@@ -28,13 +29,12 @@ public class AdminHomePage extends PageObject {
         clickOn(postMenuLink);
     }
 
-    public void clickOnAllProductsLink(){
+    public void clickOnAllProductsLink() {
         clickOn(allProductsLink);
     }
 
-    public void clickOnCommentsLink(){
+    public void clickOnCommentsLink() {
         clickOn(commentsLink);
     }
-
 
 }

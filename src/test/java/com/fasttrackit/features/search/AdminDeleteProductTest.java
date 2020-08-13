@@ -17,7 +17,7 @@ public class AdminDeleteProductTest extends BaseTest {
     AdminDeleteProductSteps adminDeleteProductSteps;
 
     @Test
-    public void deleteProductFromAdminPage(){
+    public void deleteProductFromAdminPageTest() {
         loginSteps.allLoginSteps(Constants.ADMIN_USER_NAME, Constants.ADMIN_USER_PASS);
         loginSteps.navigateToAdminSite();
         adminDeleteProductSteps.clickOnAllProductsLink();
@@ -28,4 +28,5 @@ public class AdminDeleteProductTest extends BaseTest {
         adminDeleteProductSteps.clickOnDeleteSunglassesLink();
         adminDeleteProductSteps.verifyProductUpdated("1 product moved to the Trash. Undo");
     }
+
 }

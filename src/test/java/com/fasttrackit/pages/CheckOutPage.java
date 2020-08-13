@@ -36,7 +36,7 @@ public class CheckOutPage extends PageObject {
     private WebElementFacade blockUiElement;
 
 
-    public void setBillingFirstNameField(String firstName){
+    public void setBillingFirstNameField(String firstName) {
         typeInto(billingFirstNameField, firstName);
     }
 
@@ -44,36 +44,36 @@ public class CheckOutPage extends PageObject {
         typeInto(billingLastNameField, lastName);
     }
 
-    public void setBillingAddress(String billingAddress){
+    public void setBillingAddress(String billingAddress) {
         typeInto(billingAddressField, billingAddress);
     }
 
-    public void setBillingCityField(String billingCityName){
+    public void setBillingCityField(String billingCityName) {
         typeInto(billingCityField, billingCityName);
     }
 
-    public void setPostcodeField(String postcode){
+    public void setPostcodeField(String postcode) {
         typeInto(postcodeField, postcode);
     }
 
-    public void setPhoneNumberField(String phoneNumber){
+    public void setPhoneNumberField(String phoneNumber) {
         typeInto(phoneNumberField, phoneNumber);
     }
 
-    public void clickPlaceOrderButton(){
+    public void clickPlaceOrderButton() {
         waitFor(placeOrderButton);
         clickOn(placeOrderButton);
     }
 
-    public boolean verifyErrorMessageIsDisplayed(){
+    public boolean verifyErrorMessageIsDisplayed() {
         return checkoutErrorMsg.isDisplayed();
     }
 
-    public boolean verifyBillingPhoneNumberErrorMsg(String errorMessage){
+    public boolean verifyBillingPhoneNumberErrorMsg(String errorMessage) {
         return checkoutErrorMsg.containsOnlyText(errorMessage);
     }
 
-    public void waitForPageToLoad(){
+    public void waitForPageToLoad() {
         blockUiElement.waitUntilNotVisible();
     }
 

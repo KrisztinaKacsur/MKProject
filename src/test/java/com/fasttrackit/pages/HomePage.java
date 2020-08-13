@@ -32,7 +32,7 @@ public class HomePage extends PageObject {
     @FindBy (css = ".woocommerce-error")
     private WebElementFacade userNameRequiredErrorMessage;
 
-    public void openHomepage(){
+    public void openHomepage() {
         open();
     }
 
@@ -40,23 +40,24 @@ public class HomePage extends PageObject {
         clickOn(loginLink);
     }
 
-    public void typeIntoTopSearchField(String productName){
+    public void typeIntoTopSearchField(String productName) {
         typeInto(topSearchField, productName);
     }
 
-    public void clickOnSearchIcon(){
+    public void clickOnSearchIcon() {
         clickOn(searchIcon);
     }
 
-    public void clickOnReadMoreButton(){
+    public void clickOnReadMoreButton() {
         clickOn(readMoreButton);
     }
 
-    public boolean verifyUserNameRequiredMessage (String errorMsg){
+    public boolean verifyUserNameRequiredMessage (String errorMsg) {
         return userNameRequiredErrorMessage.containsOnlyText(errorMsg);
     }
 
-    public void clickOnLogoutLink(){
+    public void clickOnLogoutLink() {
         clickOn(logoutLink);
     }
+
 }

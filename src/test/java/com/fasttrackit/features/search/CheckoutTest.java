@@ -40,11 +40,10 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.typeIntoPhoneNumberField("0123456789");
         checkoutSteps.clickPlaceOrder();
         checkoutSteps.verifyOrderConfirmed();
-
     }
 
     @Test
-    public void checkOutWithoutCompletingMandatoryFields(){
+    public void checkOutWithoutCompletingMandatoryFieldsTest() {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
@@ -61,7 +60,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void checkOutPhoneNumberFiledAcceptsOnlyNumbers(){
+    public void checkOutPhoneNumberFiledAcceptsOnlyNumbersTest() {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("cap");
         cartSteps.clickAddProductToCartButton();
@@ -78,7 +77,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void productQtyChangedAfterPlacingOrderTest(){
+    public void productQtyChangedAfterPlacingOrderTest() {
         loginSteps.allLoginSteps(Constants.USER_NAME, Constants.USER_PASS);
         searchSteps.allSearchSteps("polo");
         searchSteps.initialProductStock();
@@ -94,4 +93,5 @@ public class CheckoutTest extends BaseTest {
         searchSteps.allSearchSteps("polo");
         searchSteps.verifyIfStockChanged();
     }
+
 }

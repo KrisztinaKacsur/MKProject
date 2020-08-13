@@ -13,12 +13,12 @@ public class CommentSteps {
 
 
     @Step
-    public void clickOnHomeLink(){
+    public void clickOnHomeLink() {
         myAccountPage.clickOnHomeLink();
     }
 
     @Step
-    public void clickOnReadMoreButton(){
+    public void clickOnReadMoreButton() {
         homePage.clickOnReadMoreButton();
     }
 
@@ -27,9 +27,8 @@ public class CommentSteps {
         commentPage.typeIntoCommentTextBox(commentText);
     }
 
-
     @Step
-    public void clickPostComment () {
+    public void clickPostComment() {
         commentPage.clickOnPostCommentButton();
     }
 
@@ -39,47 +38,23 @@ public class CommentSteps {
     }
 
     @Step
-    public void commentWithoutLogin(String myComment){
-        commentPage.typeIntoCommentTextBoxNotLoggedIn(myComment);
-    }
-
-    @Step
-    public void typeCommentatorName(String name){
-        commentPage.typeNameNotLoggedIn(name);
-    }
-
-    @Step
-    public void typeCommentatorEmail(String email){
-        commentPage.typeEmailNotLoggedIn(email);
-    }
-
-    @Step
-    public void clickPostCommentNotLogged() {
-        commentPage.clickPostCommentButtonNotLoggedIn();
-    }
-
-    @Step
-    public void verifyNotLoggedInCommentIsVisible(String myComment) {
-        Assert.assertTrue(commentPage.verifyInCommentsAreaNotLoggedIn(myComment));
-    }
-
-    @Step
-    public void clickOnAdminCommentsLink(){
+    public void clickOnAdminCommentsLink() {
         adminHomePage.clickOnCommentsLink();
     }
 
     @Step
-    public void hoverOverFirstCommentRow(){
+    public void hoverOverFirstCommentRow() {
         commentPage.hoverOver();
     }
 
     @Step
-    public void clickOnDeleteFirstComment(){
+    public void clickOnDeleteFirstComment() {
         commentPage.clickOnDeleteFirstComment();
     }
 
     @Step
-    public void verifyIfCommentWasMovedToTrash(){
+    public void verifyIfCommentWasMovedToTrash() {
         Assert.assertTrue(commentPage.verifyIfCommentWasMovedToTrash());
     }
+
 }

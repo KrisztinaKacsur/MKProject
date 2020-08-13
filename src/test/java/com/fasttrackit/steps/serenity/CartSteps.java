@@ -14,7 +14,7 @@ public class CartSteps {
     private int initialProductPrice;
 
     @Step
-    public void openHomePage(){
+    public void openHomePage() {
         homePage.openHomepage();
     }
 
@@ -34,75 +34,75 @@ public class CartSteps {
     }
 
     @Step
-    public void clickOnProceedToCheckout(){
+    public void clickOnProceedToCheckout() {
         cartPage.clickProceedToCheckout();
     }
 
     @Step
-    public void clickOnShopLink(){
+    public void clickOnShopLink() {
         myAccountPage.clickOnShopLink();
     }
 
     @Step
-    public void addBeanieToCart(){
+    public void addBeanieToCart() {
         shopPage.addBeanieToCart();
     }
 
     @Step
-    public void clickOnShoppingCartLink(){
+    public void clickOnShoppingCartLink() {
         shopPage.clickOnShoppingCartLink();
     }
 
     @Step
-    public void verifyBeanieInCart(){
+    public void verifyBeanieInCart() {
         Assert.assertTrue(cartPage.verifyBeanieInCart());
     }
 
     @Step
-    public void removeFirstProductFromCart(){
+    public void removeFirstProductFromCart() {
         cartPage.clickOnRemoveFirstProductFromCart();
     }
 
     @Step
-    public void verifyCartUpdated(String message){
+    public void verifyCartUpdated(String message) {
         cartPage.waitForPageToLoad();
         Assert.assertTrue(cartPage.cartUpdated(message));
     }
 
     @Step
-    public void proceedToCheckoutSteps(){
+    public void proceedToCheckoutSteps() {
        clickAddProductToCartButton();
        clickOnCartLink();
        clickOnProceedToCheckout();
     }
 
     @Step
-    public void typeIntoCartQtyBox(String qty){
+    public void typeIntoCartQtyBox(String qty) {
         cartPage.typeIntoCartQtyBox(qty);
     }
 
     @Step
-    public void clickOnUpdateCartButton(){
+    public void clickOnUpdateCartButton() {
         cartPage.clickOnUpdateCartButton();
     }
 
     @Step
-    public void initialProductPrice(){
+    public void initialProductPrice() {
         initialProductPrice = cartPage.totalPriceAmount();
     }
 
     @Step
-    public void verifyIfPriceChanged(int offset){
+    public void verifyIfPriceChanged(int offset) {
         Assert.assertTrue(cartPage.priceAfterQtyChanged(initialProductPrice,offset));
     }
 
     @Step
-    public void clickOnRemoveFromCartIcon(){
+    public void clickOnRemoveFromCartIcon() {
         cartPage.clickOnRemoveFromCartIcon();
     }
 
     @Step
-    public void verifyCartSum(){
+    public void verifyCartSum() {
         Assert.assertTrue(cartPage.sumInCartIsZero());
     }
 
