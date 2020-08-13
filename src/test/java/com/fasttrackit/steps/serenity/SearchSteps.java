@@ -100,4 +100,39 @@ public class SearchSteps {
         Assert.assertTrue(searchResultPage.verifyIfStockChanged(initialProductstk, 1));
     }
 
+    @Step
+    public void sortByPopularity(){
+        searchResultPage.selectSortByDropdown("Sort by popularity");
+    }
+    @Step
+    public void sortByRating(){
+        searchResultPage.selectSortByDropdown("Sort by average rating");
+    }
+
+    @Step
+    public void sortByNewness(){
+        searchResultPage.selectSortByDropdown("Sort by newness");
+    }
+
+    @Step
+    public void sortByLowToHigh(){
+        searchResultPage.selectSortByDropdown("Sort by price: low to high");
+    }
+
+    @Step
+    public void sortByHighToLow(){
+        searchResultPage.selectSortByDropdown("Sort by price: high to low");
+    }
+
+    @Step
+    public void checkLowestProductPrice(){
+        Assert.assertTrue(searchResultPage.checkLowestProductPrice());
+    }
+
+    @Step
+    public void checkHighestPrice() {
+        Assert.assertTrue(searchResultPage.checkHighestProductPrice());
+    }
+
+
 }

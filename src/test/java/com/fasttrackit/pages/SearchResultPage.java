@@ -57,6 +57,9 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".stock")
     private WebElementFacade productStockText;
 
+    @FindBy(css = ".orderby")
+    private WebElementFacade sortByDropdownSelect;
+
 
     public boolean verifySingleProductWasFound(String productName) {
         return singleItem.containsOnlyText(productName);
@@ -133,6 +136,48 @@ public class SearchResultPage extends PageObject {
         }
         return false;
     }
+
+    public void selectSortByDropdown(String visibleText){
+        sortByDropdownSelect.selectByVisibleText(visibleText);
+    }
+
+
+    public boolean checkLowestProductPrice() {
+        WebElement firstProductPrice = searchResultList.get(0)
+                                       .findElement(By.cssSelector(".woocommerce-Price-amount"));
+        String firstPrice = firstProductPrice.getText().replace("lei", "").replace(".", "");
+        int lowestPrice = Integer.valueOf(firstPrice);
+
+        WebElement lastProductPrice = searchResultList.get(searchResultList.size() - 1)
+                                      .findElement(By.cssSelector(".woocommerce-Price-amount"));
+        String lastPrice = lastProductPrice.getText().replace("lei", "").replace(".", "");
+        int highestPrice = Integer.valueOf(lastPrice);
+
+        if (lowestPrice <= highestPrice) {
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean checkHighestProductPrice() {
+        WebElement firstProductPrice = searchResultList.get(0)
+                .findElement(By.cssSelector(".woocommerce-Price-amount"));
+        String firstPrice = firstProductPrice.getText().replace("lei", "").replace(".", "");
+        int lowestPrice = Integer.valueOf(firstPrice);
+
+        WebElement lastProductPrice = searchResultList.get(searchResultList.size() - 1)
+                .findElement(By.cssSelector(".woocommerce-Price-amount"));
+        String lastPrice = lastProductPrice.getText().replace("lei", "").replace(".", "");
+        int highestPrice = Integer.valueOf(lastPrice);
+
+        if (lowestPrice >= highestPrice) {
+            return true;
+        }
+        return false;
+    }
+
+
 
 
 

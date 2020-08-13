@@ -4,12 +4,11 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 @DefaultUrl("http://qa5.fasttrackit.org:8008/?post_type=product")
 public class ShopPage extends PageObject {
-
-    @FindBy(css = ".orderby")
-    private WebElementFacade sortByDropdownSelect;
 
     @FindBy(css = "[href*='cart=26']")
     private WebElementFacade addBeanieToCartButton;
@@ -17,9 +16,6 @@ public class ShopPage extends PageObject {
     @FindBy(css = ".cart-contents")
     private WebElementFacade shoppingCartLink;
 
-    public void selectSortByDropdown(String visibleText){
-        sortByDropdownSelect.selectByVisibleText(visibleText);
-    }
 
     public void addBeanieToCart(){
         clickOn(addBeanieToCartButton);
@@ -28,10 +24,6 @@ public class ShopPage extends PageObject {
     public void clickOnShoppingCartLink(){
         clickOn(shoppingCartLink);
     }
-
-
-
-
 
 }
 

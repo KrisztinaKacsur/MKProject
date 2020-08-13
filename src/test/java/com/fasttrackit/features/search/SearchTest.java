@@ -51,8 +51,24 @@ public class SearchTest extends BaseTest {
         searchSteps.navigateBack();
         searchSteps.getResultAfterGoBackInChrome();
         searchSteps.verifyIfSearchedResultsAreTheSame();
-
     }
+
+    @Test
+    public void sortProductsByLowToHighPrice(){
+        searchSteps.navigateToHomepage();
+        searchSteps.search("banner");
+        searchSteps.sortByLowToHigh();
+        searchSteps.checkLowestProductPrice();
+    }
+
+    @Test
+    public void sortProductsByHighToLowPrice(){
+        searchSteps.navigateToHomepage();
+        searchSteps.search("banner");
+        searchSteps.sortByHighToLow();
+        searchSteps.checkHighestPrice();
+    }
+
 
 
 
