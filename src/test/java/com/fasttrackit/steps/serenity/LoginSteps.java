@@ -38,8 +38,8 @@ public class LoginSteps {
     }
 
     @Step
-    public void verifyLoggedIn(){
-        Assert.assertTrue(myAccountPage.verifyLogin());
+    public void clickOnLogoutLink(){
+        homePage.clickOnLogoutLink();
     }
 
     @Step

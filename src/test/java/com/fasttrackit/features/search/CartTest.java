@@ -35,7 +35,6 @@ public class CartTest extends BaseTest {
         cartSteps.addBeanieToCart();
         cartSteps.clickOnShoppingCartLink();
         cartSteps.verifyBeanieInCart();
-        //avem nevoie de acesti pasi aici?
         cartSteps.removeFirstProductFromCart();
         cartSteps.verifyCartUpdated("“Beanie” removed. Undo?");
     }

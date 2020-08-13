@@ -1,8 +1,6 @@
 package com.fasttrackit.steps.serenity;
 
-import com.fasttrackit.pages.HelloWorldPage;
-import com.fasttrackit.pages.HomePage;
-import com.fasttrackit.pages.MyAccountPage;
+import com.fasttrackit.pages.*;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 
@@ -10,7 +8,8 @@ public class CommentSteps {
 
     private MyAccountPage myAccountPage;
     private HomePage homePage;
-    private HelloWorldPage helloWorldPage;
+    private CommentPage commentPage;
+    private AdminHomePage adminHomePage;
 
 
     @Step
@@ -25,42 +24,62 @@ public class CommentSteps {
 
     @Step
     public void typeCommentText(String commentText) {
-        helloWorldPage.typeIntoCommentTextBox(commentText);
+        commentPage.typeIntoCommentTextBox(commentText);
     }
 
 
     @Step
     public void clickPostComment () {
-        helloWorldPage.clickOnPostCommentButton();
+        commentPage.clickOnPostCommentButton();
     }
 
     @Step
     public void verifyMyCommentIsVisible(String myComment) {
-        Assert.assertTrue(helloWorldPage.verifyInCommentsArea(myComment));
+        Assert.assertTrue(commentPage.verifyInCommentsArea(myComment));
     }
 
     @Step
     public void commentWithoutLogin(String myComment){
-        helloWorldPage.typeIntoCommentTextBoxNotLoggedIn(myComment);
+        commentPage.typeIntoCommentTextBoxNotLoggedIn(myComment);
     }
 
     @Step
     public void typeCommentatorName(String name){
-        helloWorldPage.typeNameNotLoggedIn(name);
+        commentPage.typeNameNotLoggedIn(name);
     }
 
     @Step
     public void typeCommentatorEmail(String email){
-        helloWorldPage.typeEmailNotLoggedIn(email);
+        commentPage.typeEmailNotLoggedIn(email);
     }
 
     @Step
     public void clickPostCommentNotLogged() {
-        helloWorldPage.clickPostCommentButtonNotLoggedIn();
+        commentPage.clickPostCommentButtonNotLoggedIn();
     }
 
     @Step
     public void verifyNotLoggedInCommentIsVisible(String myComment) {
-        Assert.assertTrue(helloWorldPage.verifyInCommentsAreaNotLoggedIn(myComment));
+        Assert.assertTrue(commentPage.verifyInCommentsAreaNotLoggedIn(myComment));
+    }
+
+    @Step
+    public void clickOnAdminCommentsLink(){
+        adminHomePage.clickOnCommentsLink();
+    }
+
+    @Step
+    public void hoverOverFirstCommentRow(){
+        commentPage.hoverOver();
+    }
+
+    @Step
+    public void clickOnDeleteFirstComment(){
+        commentPage.clickOnDeleteFirstComment();
+    }
+
+    @Step
+    public void verifyIfCommentWasMovedToTrash(){
+        Assert.assertTrue(commentPage.verifyIfCommentWasMovedToTrash());
     }
 }

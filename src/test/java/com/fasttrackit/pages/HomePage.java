@@ -14,6 +14,9 @@ public class HomePage extends PageObject {
     @FindBy(css = ".account")
     private WebElementFacade loginLink;
 
+    @FindBy (css = ".logout")
+    private WebElementFacade logoutLink;
+
     @FindBy(css = ".search-form .search-field")
     private WebElementFacade topSearchField;
 
@@ -45,10 +48,6 @@ public class HomePage extends PageObject {
         clickOn(searchIcon);
     }
 
-    public void clickOnShopLink(){
-        clickOn(shopLink);
-    }
-
     public void clickOnReadMoreButton(){
         clickOn(readMoreButton);
     }
@@ -57,4 +56,7 @@ public class HomePage extends PageObject {
         return userNameRequiredErrorMessage.containsOnlyText(errorMsg);
     }
 
+    public void clickOnLogoutLink(){
+        clickOn(logoutLink);
+    }
 }

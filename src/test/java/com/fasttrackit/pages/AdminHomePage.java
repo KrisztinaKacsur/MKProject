@@ -17,6 +17,9 @@ public class AdminHomePage extends PageObject {
     @FindBy(css = "#menu-posts-product .wp-menu-name")
     private WebElementFacade allProductsLink;
 
+    @FindBy (css = ".dashicons-admin-comments ")
+    private WebElementFacade commentsLink;
+
     public boolean verifyLoggedInOnAdminPage(String userName){
         return adminWelcomeMessage.containsText(userName);
     }
@@ -27,6 +30,10 @@ public class AdminHomePage extends PageObject {
 
     public void clickOnAllProductsLink(){
         clickOn(allProductsLink);
+    }
+
+    public void clickOnCommentsLink(){
+        clickOn(commentsLink);
     }
 
 
