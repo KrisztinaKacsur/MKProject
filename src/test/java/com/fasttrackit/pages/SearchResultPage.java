@@ -17,6 +17,7 @@ public class SearchResultPage extends PageObject {
 
     private String nrOfResultsFound;
     private String nrOfResultsAfterGoBack;
+    private int productPrice;
 
     @FindBy(css = ".product")
     private List<WebElementFacade> searchResultList;
@@ -141,37 +142,26 @@ public class SearchResultPage extends PageObject {
         sortByDropdownSelect.selectByVisibleText(visibleText);
     }
 
-
-    public boolean checkLowestProductPrice() {
+    public int getProductPrice(){
         WebElement firstProductPrice = searchResultList.get(0)
-                                       .findElement(By.cssSelector(".woocommerce-Price-amount"));
+                .findElement(By.cssSelector(".woocommerce-Price-amount"));
         String firstPrice = firstProductPrice.getText().replace("lei", "").replace(".", "");
-        int lowestPrice = Integer.valueOf(firstPrice);
+        int productPrice = Integer.valueOf(firstPrice);
+        return productPrice;
+    }
 
-        WebElement lastProductPrice = searchResultList.get(searchResultList.size() - 1)
-                                      .findElement(By.cssSelector(".woocommerce-Price-amount"));
-        String lastPrice = lastProductPrice.getText().replace("lei", "").replace(".", "");
-        int highestPrice = Integer.valueOf(lastPrice);
-
-        if (lowestPrice <= highestPrice) {
+    public boolean checkLowestProductPrice(int productPrice) {
+        int highestPrice = getProductPrice();
+        if (productPrice <= highestPrice) {
             return true;
         }
         return false;
     }
 
 
-    public boolean checkHighestProductPrice() {
-        WebElement firstProductPrice = searchResultList.get(0)
-                .findElement(By.cssSelector(".woocommerce-Price-amount"));
-        String firstPrice = firstProductPrice.getText().replace("lei", "").replace(".", "");
-        int lowestPrice = Integer.valueOf(firstPrice);
-
-        WebElement lastProductPrice = searchResultList.get(searchResultList.size() - 1)
-                .findElement(By.cssSelector(".woocommerce-Price-amount"));
-        String lastPrice = lastProductPrice.getText().replace("lei", "").replace(".", "");
-        int highestPrice = Integer.valueOf(lastPrice);
-
-        if (lowestPrice >= highestPrice) {
+    public boolean checkHighestProductPrice(int productPrice) {
+        int highestPrice = getProductPrice();
+        if (highestPrice >= productPrice) {
             return true;
         }
         return false;

@@ -11,6 +11,7 @@ public class SearchSteps {
     private HomePage homePage;
     private SearchResultPage searchResultPage;
     private int initialProductstk;
+    private int initialProductPrice;
 
     @Step
     public void navigateToHomepage() {
@@ -36,7 +37,6 @@ public class SearchSteps {
     @Step
     public void findClickProduct(String productName) {
         Assert.assertTrue(searchResultPage.findAndClickProductFromList(productName));
-
     }
 
     @Step
@@ -101,20 +101,6 @@ public class SearchSteps {
     }
 
     @Step
-    public void sortByPopularity(){
-        searchResultPage.selectSortByDropdown("Sort by popularity");
-    }
-    @Step
-    public void sortByRating(){
-        searchResultPage.selectSortByDropdown("Sort by average rating");
-    }
-
-    @Step
-    public void sortByNewness(){
-        searchResultPage.selectSortByDropdown("Sort by newness");
-    }
-
-    @Step
     public void sortByLowToHigh(){
         searchResultPage.selectSortByDropdown("Sort by price: low to high");
     }
@@ -125,14 +111,17 @@ public class SearchSteps {
     }
 
     @Step
+    public void getProductPrice(){
+        searchResultPage.getProductPrice();
+    }
+
+    @Step
     public void checkLowestProductPrice(){
-        Assert.assertTrue(searchResultPage.checkLowestProductPrice());
+        Assert.assertTrue(searchResultPage.checkLowestProductPrice(initialProductPrice));
     }
 
     @Step
     public void checkHighestPrice() {
-        Assert.assertTrue(searchResultPage.checkHighestProductPrice());
+        Assert.assertTrue(searchResultPage.checkHighestProductPrice(initialProductPrice));
     }
-
-
 }

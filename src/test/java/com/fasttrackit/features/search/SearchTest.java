@@ -58,6 +58,7 @@ public class SearchTest extends BaseTest {
         searchSteps.navigateToHomepage();
         searchSteps.search("banner");
         searchSteps.sortByLowToHigh();
+        searchSteps.getProductPrice();
         searchSteps.checkLowestProductPrice();
     }
 
@@ -66,6 +67,7 @@ public class SearchTest extends BaseTest {
         searchSteps.navigateToHomepage();
         searchSteps.search("banner");
         searchSteps.sortByHighToLow();
+        searchSteps.getProductPrice();
         searchSteps.checkHighestPrice();
     }
 
