@@ -27,6 +27,7 @@ public class CartTest extends BaseTest {
         cartSteps.verifyProductAddedToCart("cap");
         cartSteps.clickOnShoppingCartLink();
         cartSteps.removeFirstProductFromCart();
+        cartSteps.refreshPage();
     }
 
     @Test
@@ -36,6 +37,7 @@ public class CartTest extends BaseTest {
         cartSteps.clickOnShopLink();
         cartSteps.addBeanieToCart();
         cartSteps.clickOnShoppingCartLink();
+        cartSteps.refreshPage();
         cartSteps.verifyBeanieInCart();
         cartSteps.removeFirstProductFromCart();
         cartSteps.verifyCartUpdated("“Beanie” removed. Undo?");

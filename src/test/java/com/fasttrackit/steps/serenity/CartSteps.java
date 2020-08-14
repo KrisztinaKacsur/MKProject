@@ -106,4 +106,9 @@ public class CartSteps {
         Assert.assertTrue(cartPage.sumInCartIsZero());
     }
 
+    @Step
+    public void refreshPage(){
+        cartPage.refreshPage();
+    }
+
 }

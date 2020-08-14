@@ -63,4 +63,9 @@ public class CheckoutSteps {
         Assert.assertTrue(checkOutPage.verifyBillingPhoneNumberErrorMsg(errorMsg));
     }
 
+    @Step
+    public void clickOnCartSum(){
+        checkOutPage.clickOnCartSum();
+    }
+
 }

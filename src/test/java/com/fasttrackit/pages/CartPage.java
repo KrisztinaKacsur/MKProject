@@ -103,4 +103,9 @@ public class CartPage extends PageObject {
         return false;
     }
 
+    public void refreshPage(){
+        getDriver().navigate().refresh();
+    }
+
+
 }

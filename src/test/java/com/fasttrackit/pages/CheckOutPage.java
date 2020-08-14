@@ -35,6 +35,9 @@ public class CheckOutPage extends PageObject {
     @FindBy(css = ".blockUI.blockOverlay")
     private WebElementFacade blockUiElement;
 
+    @FindBy(css = ".amount")
+    private WebElementFacade cartSum;
+
 
     public void setBillingFirstNameField(String firstName) {
         typeInto(billingFirstNameField, firstName);
@@ -75,6 +78,10 @@ public class CheckOutPage extends PageObject {
 
     public void waitForPageToLoad() {
         blockUiElement.waitUntilNotVisible();
+    }
+
+    public void clickOnCartSum(){
+        clickOn(cartSum);
     }
 
 }

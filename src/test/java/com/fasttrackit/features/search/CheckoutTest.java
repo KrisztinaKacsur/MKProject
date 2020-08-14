@@ -74,6 +74,9 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.typeIntoPhoneNumberField("abc%^*(.");
         checkoutSteps.clickPlaceOrder();
         checkoutSteps.verifyBillingPhoneNumberErrorMsg("Billing Phone is not a valid phone number.");
+        checkoutSteps.clickOnCartSum();
+        cartSteps.removeFirstProductFromCart();
+
     }
 
     @Test
