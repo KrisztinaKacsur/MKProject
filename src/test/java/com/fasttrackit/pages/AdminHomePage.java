@@ -11,9 +11,6 @@ public class AdminHomePage extends PageObject {
     @FindBy(id = "wp-admin-bar-my-account")
     private WebElementFacade adminWelcomeMessage;
 
-    @FindBy (css = "#menu-posts .wp-menu-name")
-    private WebElementFacade postMenuLink;
-
     @FindBy(css = "#menu-posts-product .wp-menu-name")
     private WebElementFacade allProductsLink;
 
@@ -23,10 +20,6 @@ public class AdminHomePage extends PageObject {
 
     public boolean verifyLoggedInOnAdminPage(String userName) {
         return adminWelcomeMessage.containsText(userName);
-    }
-
-    public void clickOnPosMenu () {
-        clickOn(postMenuLink);
     }
 
     public void clickOnAllProductsLink() {

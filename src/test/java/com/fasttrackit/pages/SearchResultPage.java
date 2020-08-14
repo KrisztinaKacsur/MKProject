@@ -3,15 +3,9 @@ package com.fasttrackit.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.apache.commons.text.RandomStringGenerator;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class SearchResultPage extends PageObject {
 

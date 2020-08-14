@@ -4,7 +4,6 @@ import com.fasttrackit.Util.BaseTest;
 import com.fasttrackit.Util.Constants;
 import com.fasttrackit.steps.serenity.AdminDeleteProductSteps;
 import com.fasttrackit.steps.serenity.LoginSteps;
-import io.vavr.collection.List;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 
