@@ -57,6 +57,8 @@ public class CheckoutTest extends BaseTest {
         checkoutSteps.typeIntoPhoneNumberField("");
         checkoutSteps.clickPlaceOrder();
         checkoutSteps.verifyMandatoryFieldsErrorMessage();
+        checkoutSteps.clickOnCartSum();
+        cartSteps.removeFirstProductFromCart();
     }
 
     @Test
