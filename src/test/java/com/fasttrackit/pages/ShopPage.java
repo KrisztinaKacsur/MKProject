@@ -14,6 +14,12 @@ public class ShopPage extends PageObject {
     @FindBy(css = ".cart-contents")
     private WebElementFacade shoppingCartLink;
 
+    @FindBy(css = ".entry-title")
+    private WebElementFacade pageHeader;
+
+    @FindBy(css = ".woocommerce-breadcrumb a")
+    private WebElementFacade headerHomeLink;
+
 
     public void addBeanieToCart() {
         clickOn(addBeanieToCartButton);
@@ -21,6 +27,14 @@ public class ShopPage extends PageObject {
 
     public void clickOnShoppingCartLink() {
         clickOn(shoppingCartLink);
+    }
+
+    public boolean verifyPageHeaderTitle(String pageTitle) {
+        return pageHeader.containsOnlyText(pageTitle);
+    }
+
+    public void clickOnHeaderHomeLink() {
+        clickOn(headerHomeLink);
     }
 
 }

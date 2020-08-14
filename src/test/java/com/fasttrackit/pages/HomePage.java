@@ -29,8 +29,12 @@ public class HomePage extends PageObject {
     @FindBy(css = ".read-more")
     private WebElementFacade readMoreButton;
 
-    @FindBy (css = ".woocommerce-error")
+    @FindBy(css = ".woocommerce-error")
     private WebElementFacade userNameRequiredErrorMessage;
+
+    @FindBy(css = ".entry-title a")
+    private WebElementFacade helloWorldText;
+
 
     public void openHomepage() {
         open();
@@ -58,6 +62,14 @@ public class HomePage extends PageObject {
 
     public void clickOnLogoutLink() {
         clickOn(logoutLink);
+    }
+
+    public void clickOnShopLink(){
+        clickOn(shopLink);
+    }
+
+    public boolean verifyHelloWordText() {
+        return helloWorldText.containsOnlyText("Hello world!");
     }
 
 }

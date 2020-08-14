@@ -53,22 +53,4 @@ public class SearchTest extends BaseTest {
         searchSteps.verifyIfSearchedResultsAreTheSame();
     }
 
-    @Test
-    public void sortProductsByLowToHighPriceTest() {
-        searchSteps.navigateToHomepage();
-        searchSteps.search("banner");
-        searchSteps.sortByLowToHigh();
-        searchSteps.getProductPrice();
-        searchSteps.checkLowestProductPrice();
-    }
-
-    @Test
-    public void sortProductsByHighToLowPriceTest(){
-        searchSteps.navigateToHomepage();
-        searchSteps.search("banner");
-        searchSteps.sortByHighToLow();
-        searchSteps.getProductPrice();
-        searchSteps.checkHighestPrice();
-    }
-
 }
